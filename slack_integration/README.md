@@ -2,11 +2,6 @@
 
 Professional Slack integration module for Odoo CRM, developed by **Stoner Studios**.
 
-**Version:** 18.0.1.0.0
-**License:** LGPL-3
-**Author:** Stoner Studios
-**Compatible with:** Odoo 18.0
-
 ---
 
 ## 📋 Table of Contents

@@ -16,7 +16,7 @@ Secure user impersonation module for Odoo 18 with mandatory audit reasons and co
 
 ```bash
 cd /path/to/odoo/addons
-git clone https://github.com/Stoner-Studios/odoo-user-impersonate.git user_impersonation
+git clone -b 18.0 https://github.com/Stoner-Studios/odoo-stoner-studios-addons.git
 # Restart Odoo
 # Go to Apps → Update Apps List
 # Search for "User Impersonation" → Install
