@@ -9,10 +9,10 @@ This repository contains a collection of high-quality, production-ready Odoo mod
 
 ## Available Modules
 
-| Module | Version | Description | Status |
-|--------|---------|-------------|--------|
-| [user_impersonation](./user_impersonation) | 18.0.1.0.0 | Secure user impersonation with mandatory audit reasons | ✅ Stable |
-| [slack_integration](./slack_integration) | 18.0.1.2.0 | Bi-directional Slack integration for Odoo | ✅ Stable |
+| Module | Description | Status |
+|--------|-------------|--------|
+| [user_impersonation](./user_impersonation) | Secure user impersonation with mandatory audit reasons | ✅ Stable |
+| [slack_integration](./slack_integration) | Complete Slack integration for CRM opportunity management | ✅ Stable |
 
 ## Installation
 
@@ -20,13 +20,13 @@ This repository contains a collection of high-quality, production-ready Odoo mod
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/Stoner-Studios/odoo-stoner-addons.git
+git clone https://github.com/Stoner-Studios/odoo-stoner-studios-addons.git
 ```
 
 2. Add the repository path to your Odoo configuration:
 ```ini
 [options]
-addons_path = /path/to/odoo-stoner-addons,/path/to/odoo/addons
+addons_path = /path/to/odoo-stoner-studios-addons,/path/to/odoo/addons
 ```
 
 3. Restart Odoo and update the app list
@@ -37,7 +37,7 @@ addons_path = /path/to/odoo-stoner-addons,/path/to/odoo/addons
 
 ```bash
 cd /path/to/your/odoo/custom/addons
-git submodule add https://github.com/Stoner-Studios/odoo-stoner-addons.git
+git submodule add https://github.com/Stoner-Studios/odoo-stoner-studios-addons.git
 ```
 
 ## Version Compatibility
@@ -45,8 +45,7 @@ git submodule add https://github.com/Stoner-Studios/odoo-stoner-addons.git
 Each branch corresponds to an Odoo version:
 
 - `18.0` - Compatible with Odoo 18.0 (current)
-- `17.0` - Compatible with Odoo 17.0 (planned)
-- `16.0` - Compatible with Odoo 16.0 (planned)
+- `19.0` - Compatible with Odoo 19.0 (planned)
 
 ## Module Documentation
 
@@ -59,7 +58,7 @@ Each module has its own README with detailed documentation:
 
 We welcome contributions! Here's how you can help:
 
-1. **Report Issues**: Found a bug? [Open an issue](https://github.com/Stoner-Studios/odoo-stoner-addons/issues)
+1. **Report Issues**: Found a bug? [Open an issue](https://github.com/Stoner-Studios/odoo-stoner-studios-addons/issues)
 2. **Suggest Features**: Have an idea? We'd love to hear it!
 3. **Submit Pull Requests**:
    - Fork the repository
@@ -85,8 +84,8 @@ Professional support, customizations, and priority bug fixes are available for b
 
 ### Community Support
 
-- **Issues**: [GitHub Issues](https://github.com/Stoner-Studios/odoo-stoner-addons/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/Stoner-Studios/odoo-stoner-addons/discussions)
+- **Issues**: [GitHub Issues](https://github.com/Stoner-Studios/odoo-stoner-studios-addons/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/Stoner-Studios/odoo-stoner-studios-addons/discussions)
 
 ## License
 

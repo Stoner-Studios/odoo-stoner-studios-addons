@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Slack Integration',
-    'version': '18.0.1.1.0',
+    'version': '18.0.1.1.1',
     'category': 'Productivity/Integrations',
     'summary': 'Complete Slack integration for CRM opportunity management',
     'description': """
