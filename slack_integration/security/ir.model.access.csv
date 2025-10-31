@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_slack_user_mapping_user,Slack User Mapping - User,model_slack_user_mapping,base.group_user,1,1,1,0
+access_slack_user_mapping_system,Slack User Mapping - System,model_slack_user_mapping,base.group_system,1,1,1,1
+access_slack_conversation_user,Slack Conversation - User,model_slack_conversation,base.group_user,1,1,1,0
+access_slack_conversation_system,Slack Conversation - System,model_slack_conversation,base.group_system,1,1,1,1
+access_slack_security_log_system,Slack Security Log - System,model_slack_security_log,base.group_system,1,1,1,1

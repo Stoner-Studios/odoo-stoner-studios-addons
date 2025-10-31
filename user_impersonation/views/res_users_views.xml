@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Add Impersonate button to user form -->
+    <record id="view_users_form_impersonate" model="ir.ui.view">
+        <field name="name">res.users.form.impersonate</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="%(action_open_impersonate_wizard)d"
+                        string="Impersonate User"
+                        type="action"
+                        context="{'default_user_id': id}"
+                        class="btn-primary"
+                        icon="fa-user-secret"
+                        groups="base.group_system"
+                        invisible="id == uid"
+                        />
+            </xpath>
+        </field>
+    </record>
+    
+    <!-- Add Impersonate button to user list view -->
+    <record id="view_users_list_impersonate" model="ir.ui.view">
+        <field name="name">res.users.list.impersonate</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='lang']" position="after">
+                <button name="%(action_open_impersonate_wizard)d"
+                        string="Impersonate"
+                        type="action"
+                        context="{'default_user_id': id}"
+                        icon="fa-user-secret"
+                        groups="base.group_system"
+                        invisible="id == uid"
+                        />
+            </xpath>
+        </field>
+    </record>
+</odoo>

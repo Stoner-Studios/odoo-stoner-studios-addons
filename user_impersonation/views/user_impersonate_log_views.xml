@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- List view for impersonate logs -->
+    <record id="view_user_impersonate_log_list" model="ir.ui.view">
+        <field name="name">user.impersonate.log.list</field>
+        <field name="model">user.impersonate.log</field>
+        <field name="arch" type="xml">
+            <list string="Impersonation Logs" create="false" edit="false" delete="false">
+                <field name="create_date" string="Date/Time"/>
+                <field name="admin_user_id" string="Administrator"/>
+                <field name="target_user_id" string="Impersonated User"/>
+                <field name="action" widget="badge" decoration-success="action == 'start'" decoration-danger="action == 'stop'"/>
+                <field name="reason" string="Reason" optional="show"/>
+                <field name="ip_address" string="IP Address" optional="show"/>
+                <field name="duration" string="Duration (min)" sum="Total" widget="float_time"/>
+            </list>
+        </field>
+    </record>
+    
+    <!-- Form view for impersonate logs -->
+    <record id="view_user_impersonate_log_form" model="ir.ui.view">
+        <field name="name">user.impersonate.log.form</field>
+        <field name="model">user.impersonate.log</field>
+        <field name="arch" type="xml">
+            <form string="Impersonation Log" create="false" edit="false" delete="false">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="admin_user_id"/>
+                            <field name="target_user_id"/>
+                            <field name="ip_address"/>
+                        </group>
+                        <group>
+                            <field name="action"/>
+                            <field name="create_date"/>
+                            <field name="duration" widget="float_time"/>
+                        </group>
+                    </group>
+                    <group string="Reason for Impersonation">
+                        <field name="reason" nolabel="1" colspan="2"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <!-- Search view for impersonate logs -->
+    <record id="view_user_impersonate_log_search" model="ir.ui.view">
+        <field name="name">user.impersonate.log.search</field>
+        <field name="model">user.impersonate.log</field>
+        <field name="arch" type="xml">
+            <search string="Search Impersonation Logs">
+                <field name="admin_user_id"/>
+                <field name="target_user_id"/>
+                <filter name="filter_today" string="Today" domain="[('create_date', '>=', datetime.datetime.now().replace(hour=0, minute=0, second=0))]"/>
+                <filter name="filter_week" string="This Week" domain="[('create_date', '>=', (datetime.datetime.now() - datetime.timedelta(days=7)).strftime('%Y-%m-%d'))]"/>
+                <filter name="filter_month" string="This Month" domain="[('create_date', '>=', (datetime.datetime.now().replace(day=1)).strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter name="filter_start" string="Start Sessions" domain="[('action', '=', 'start')]"/>
+                <filter name="filter_stop" string="Stop Sessions" domain="[('action', '=', 'stop')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_admin" string="Administrator" context="{'group_by': 'admin_user_id'}"/>
+                    <filter name="group_target" string="Impersonated User" context="{'group_by': 'target_user_id'}"/>
+                    <filter name="group_date" string="Date" context="{'group_by': 'create_date:day'}"/>
+                    <filter name="group_action" string="Action" context="{'group_by': 'action'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    
+    <!-- Action for impersonate logs -->
+    <record id="action_user_impersonate_log" model="ir.actions.act_window">
+        <field name="name">Impersonation Logs</field>
+        <field name="res_model">user.impersonate.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_user_impersonate_log_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No impersonation logs yet
+            </p>
+            <p>
+                All user impersonation sessions are logged here for security audit purposes.
+            </p>
+        </field>
+    </record>
+    
+    <!-- Main menu category for User Impersonation under Technical -->
+    <record id="menu_user_impersonation_root" model="ir.ui.menu">
+        <field name="name">User Impersonation</field>
+        <field name="parent_id" ref="base.menu_custom"/>
+        <field name="groups_id" eval="[(4, ref('base.group_system'))]"/>
+        <field name="sequence">50</field>
+    </record>
+
+    <!-- Menu item for impersonate logs -->
+    <record id="menu_user_impersonate_log" model="ir.ui.menu">
+        <field name="name">Impersonation Logs</field>
+        <field name="parent_id" ref="menu_user_impersonation_root"/>
+        <field name="action" ref="action_user_impersonate_log"/>
+        <field name="groups_id" eval="[(4, ref('base.group_system'))]"/>
+        <field name="sequence">10</field>
+    </record>
+</odoo>

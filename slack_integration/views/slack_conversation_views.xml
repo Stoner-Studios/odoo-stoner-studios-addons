@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- List View -->
+    <record id="view_slack_conversation_list" model="ir.ui.view">
+        <field name="name">slack.conversation.list</field>
+        <field name="model">slack.conversation</field>
+        <field name="arch" type="xml">
+            <list string="Bot Conversations"
+                  create="false"
+                  edit="true"
+                  decoration-success="state == 'authenticated'"
+                  decoration-info="state == 'active'"
+                  decoration-warning="state == 'waiting'"
+                  decoration-muted="state == 'idle'">
+                <field name="display_name" string="Conversation"/>
+                <field name="slack_user_id" optional="hide"/>
+                <field name="channel_id" optional="hide"/>
+                <field name="mapping_id" widget="many2one_avatar_user" optional="show"/>
+                <field name="state" widget="badge"/>
+                <field name="last_message_date" string="Last Activity"/>
+                <field name="message_count" string="Messages" optional="show"/>
+                <field name="waiting_for" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_slack_conversation_form" model="ir.ui.view">
+        <field name="name">slack.conversation.form</field>
+        <field name="model">slack.conversation</field>
+        <field name="arch" type="xml">
+            <form string="Bot Conversation">
+                <header>
+                    <field name="state"
+                           widget="statusbar"
+                           statusbar_visible="new,active,waiting,authenticated,idle"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="display_name" readonly="1"/></h1>
+                    </div>
+
+                    <group>
+                        <group string="Slack Information">
+                            <field name="slack_user_id" readonly="1"/>
+                            <field name="slack_team_id" readonly="1"/>
+                            <field name="channel_id" readonly="1"/>
+                            <field name="mapping_id" readonly="1"/>
+                        </group>
+                        <group string="Conversation State">
+                            <field name="started_date" readonly="1"/>
+                            <field name="last_message_date" readonly="1"/>
+                            <field name="waiting_for" readonly="1"/>
+                            <field name="waiting_context" readonly="1" invisible="not waiting_context"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Messages" name="messages">
+                            <group>
+                                <field name="last_message" readonly="1" widget="text"/>
+                                <field name="last_response" readonly="1" widget="text"/>
+                                <field name="last_command" readonly="1"/>
+                            </group>
+                        </page>
+
+                        <page string="Statistics" name="stats">
+                            <group>
+                                <group>
+                                    <field name="message_count" readonly="1"/>
+                                    <field name="command_count" readonly="1"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Context Data" name="context" groups="base.group_system">
+                            <field name="context_data" readonly="1" widget="ace" options="{'mode': 'json'}"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_slack_conversation_search" model="ir.ui.view">
+        <field name="name">slack.conversation.search</field>
+        <field name="model">slack.conversation</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="display_name"/>
+                <field name="slack_user_id"/>
+                <field name="channel_id"/>
+
+                <filter string="Active" name="active" domain="[('state', '=', 'active')]"/>
+                <filter string="Authenticated" name="authenticated" domain="[('state', '=', 'authenticated')]"/>
+                <filter string="Waiting" name="waiting" domain="[('state', '=', 'waiting')]"/>
+                <filter string="Idle" name="idle" domain="[('state', '=', 'idle')]"/>
+
+                <separator/>
+
+                <filter string="Today" name="today"
+                        domain="[('last_message_date', '>=', context_today().strftime('%Y-%m-%d'))]"/>
+
+                <group expand="0" string="Group By">
+                    <filter string="State" name="group_state" context="{'group_by': 'state'}"/>
+                    <filter string="User Mapping" name="group_mapping" context="{'group_by': 'mapping_id'}"/>
+                    <filter string="Last Activity" name="group_date" context="{'group_by': 'last_message_date:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_slack_conversation" model="ir.actions.act_window">
+        <field name="name">Bot Conversations</field>
+        <field name="res_model">slack.conversation</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_slack_conversation_search"/>
+        <field name="context">{'search_default_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No bot conversations yet
+            </p>
+            <p>
+                Conversations are created automatically when users send DMs to the bot.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_slack_conversation"
+              name="Bot Conversations"
+              parent="menu_slack_integration_root"
+              action="action_slack_conversation"
+              sequence="20"
+              groups="base.group_system"/>
+</odoo>

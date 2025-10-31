@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree/List View -->
+    <record id="view_slack_security_log_list" model="ir.ui.view">
+        <field name="name">slack.security.log.list</field>
+        <field name="model">slack.security.log</field>
+        <field name="arch" type="xml">
+            <list string="Security Audit Log" create="false" edit="false" delete="false">
+                <field name="create_date" string="Date/Time"/>
+                <field name="event_type" widget="badge" decoration-danger="event_type in ['auth_failed', 'signature_invalid', 'token_invalid', 'replay_attack', 'suspicious_activity']" decoration-warning="event_type in ['rate_limit', 'ip_blocked', 'permission_denied']" decoration-success="event_type == 'auth_success'"/>
+                <field name="endpoint"/>
+                <field name="ip_address"/>
+                <field name="slack_user_id"/>
+                <field name="slack_team_id"/>
+                <field name="response_code"/>
+                <field name="error_message" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View (Read-only) -->
+    <record id="view_slack_security_log_form" model="ir.ui.view">
+        <field name="name">slack.security.log.form</field>
+        <field name="model">slack.security.log</field>
+        <field name="arch" type="xml">
+            <form string="Security Event Details" create="false" edit="false" delete="false">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(base.action_attachment)d" type="action" class="oe_stat_button" icon="fa-file-text-o" invisible="1">
+                            <field name="id" invisible="1"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="event_type" widget="badge" decoration-danger="event_type in ['auth_failed', 'signature_invalid', 'token_invalid', 'replay_attack', 'suspicious_activity']" decoration-warning="event_type in ['rate_limit', 'ip_blocked', 'permission_denied']" decoration-success="event_type == 'auth_success'"/>
+                        </h1>
+                        <h3>
+                            <field name="create_date" readonly="1"/>
+                        </h3>
+                    </div>
+                    <group>
+                        <group string="Request Information">
+                            <field name="endpoint"/>
+                            <field name="http_method"/>
+                            <field name="ip_address"/>
+                            <field name="response_code"/>
+                        </group>
+                        <group string="Slack Information">
+                            <field name="slack_user_id"/>
+                            <field name="slack_team_id"/>
+                            <field name="slack_channel_id"/>
+                        </group>
+                    </group>
+                    <group string="Security Details" invisible="event_type == 'auth_success'">
+                        <field name="error_message" readonly="1" invisible="not error_message"/>
+                        <field name="timestamp_drift" readonly="1" invisible="event_type != 'replay_attack'"/>
+                        <field name="signature_provided" readonly="1" invisible="event_type != 'signature_invalid'"/>
+                        <field name="signature_expected" readonly="1" invisible="event_type != 'signature_invalid'"/>
+                    </group>
+                    <notebook>
+                        <page string="Headers" invisible="not request_headers">
+                            <field name="request_headers" readonly="1"/>
+                        </page>
+                        <page string="User Agent" invisible="not user_agent">
+                            <field name="user_agent" readonly="1"/>
+                        </page>
+                        <page string="Request Body" invisible="not request_body">
+                            <field name="request_body" readonly="1"/>
+                        </page>
+                        <page string="Additional Info" invisible="not additional_info">
+                            <field name="additional_info" readonly="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_slack_security_log_search" model="ir.ui.view">
+        <field name="name">slack.security.log.search</field>
+        <field name="model">slack.security.log</field>
+        <field name="arch" type="xml">
+            <search string="Security Log Search">
+                <field name="event_type"/>
+                <field name="endpoint"/>
+                <field name="ip_address"/>
+                <field name="slack_user_id"/>
+                <field name="slack_team_id"/>
+                <field name="error_message"/>
+
+                <filter name="today" string="Today" domain="[('create_date', '>=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter name="last_7_days" string="Last 7 Days" domain="[('create_date','>=', (context_today() - relativedelta(days=7)).strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter name="failures" string="Failures" domain="[('event_type', 'in', ['auth_failed', 'signature_invalid', 'token_invalid', 'replay_attack'])]"/>
+                <filter name="rate_limits" string="Rate Limits" domain="[('event_type', '=', 'rate_limit')]"/>
+                <filter name="suspicious" string="Suspicious" domain="[('event_type', '=', 'suspicious_activity')]"/>
+                <separator/>
+                <filter name="success" string="Success" domain="[('event_type', '=', 'auth_success')]"/>
+
+                <group expand="0" string="Group By">
+                    <filter name="group_event_type" string="Event Type" context="{'group_by': 'event_type'}"/>
+                    <filter name="group_endpoint" string="Endpoint" context="{'group_by': 'endpoint'}"/>
+                    <filter name="group_ip" string="IP Address" context="{'group_by': 'ip_address'}"/>
+                    <filter name="group_date" string="Date" context="{'group_by': 'create_date:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Graph View for Analytics -->
+    <record id="view_slack_security_log_graph" model="ir.ui.view">
+        <field name="name">slack.security.log.graph</field>
+        <field name="model">slack.security.log</field>
+        <field name="arch" type="xml">
+            <graph string="Security Events" type="bar" stacked="true">
+                <field name="create_date" interval="hour"/>
+                <field name="event_type" type="col"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Pivot View for Analysis -->
+    <record id="view_slack_security_log_pivot" model="ir.ui.view">
+        <field name="name">slack.security.log.pivot</field>
+        <field name="model">slack.security.log</field>
+        <field name="arch" type="xml">
+            <pivot string="Security Analysis">
+                <field name="event_type" type="row"/>
+                <field name="create_date" interval="day" type="col"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_slack_security_log" model="ir.actions.act_window">
+        <field name="name">Security Audit Log</field>
+        <field name="res_model">slack.security.log</field>
+        <field name="view_mode">list,form,graph,pivot</field>
+        <field name="search_view_id" ref="view_slack_security_log_search"/>
+        <field name="context">{'search_default_last_7_days': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No security events recorded yet
+            </p>
+            <p>
+                This log tracks all Slack integration security events including:
+            </p>
+            <ul>
+                <li>Authentication attempts (success/failure)</li>
+                <li>Invalid signatures or tokens</li>
+                <li>Rate limiting violations</li>
+                <li>Possible replay attacks</li>
+                <li>Suspicious activity patterns</li>
+            </ul>
+        </field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_slack_security_log"
+              name="Security Log"
+              parent="menu_slack_integration_root"
+              action="action_slack_security_log"
+              sequence="30"
+              groups="base.group_system"/>
+</odoo>

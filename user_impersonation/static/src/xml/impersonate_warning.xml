@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="user_impersonate.ImpersonateWarning">
+        <!-- Systray dropdown item -->
+        <div t-if="state.isImpersonating" class="o_impersonate_warning_systray dropdown">
+            <a class="dropdown-toggle" 
+               data-bs-toggle="dropdown" 
+               href="#" 
+               role="button" 
+               aria-expanded="false"
+               style="background: #ff6b6b; color: white; padding: 0 12px; border-radius: 4px; display: flex; align-items: center; height: 100%;">
+                <i class="fa fa-user-secret me-1"/>
+                <span>Impersonating</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end">
+                <div class="px-3 py-2">
+                    <h6 class="mb-2">
+                        <i class="fa fa-warning text-warning me-1"/>
+                        Impersonation Mode
+                    </h6>
+                    <div class="mb-2">
+                        <small class="text-muted">Original user:</small><br/>
+                        <strong><t t-esc="state.originalUser"/></strong>
+                    </div>
+                    <div class="mb-3">
+                        <small class="text-muted">Impersonating:</small><br/>
+                        <strong><t t-esc="state.targetUser"/></strong>
+                    </div>
+                    <div class="alert alert-warning mb-3 py-2 px-2">
+                        <small>
+                            <i class="fa fa-info-circle me-1"/>
+                            All actions are being logged
+                        </small>
+                    </div>
+                    <button class="btn btn-danger btn-sm w-100" t-on-click="stopImpersonation">
+                        <i class="fa fa-sign-out me-1"/>
+                        Stop Impersonation
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Top warning bar (similar to database warnings) -->
+        <div t-if="state.isImpersonating and state.visible" 
+             class="o_impersonate_warning_bar"
+             t-attf-style="top: var(--impersonate-offset, 0);">
+            <div class="o_impersonate_warning_content">
+                <i class="fa fa-user-secret fa-lg me-2"/>
+                <strong class="me-2">IMPERSONATION MODE ACTIVE</strong>
+                <span class="me-2">
+                    You are acting as: <strong><t t-esc="state.targetUser"/></strong>
+                </span>
+                <span class="me-3" style="color: rgba(255, 255, 255, 0.9);">
+                    (Original user: <t t-esc="state.originalUser"/>)
+                </span>
+                <button class="btn btn-sm btn-light me-2" t-on-click="hideWarning" title="Hide warning">
+                    <i class="fa fa-times"/>
+                </button>
+                <button class="btn btn-sm btn-danger" t-on-click="stopImpersonation">
+                    <i class="fa fa-sign-out me-1"/>
+                    Stop
+                </button>
+            </div>
+        </div>
+    </t>
+</templates>

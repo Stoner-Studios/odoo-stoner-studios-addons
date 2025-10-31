@@ -1,0 +1,2334 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * slack_integration
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-17 10:00+0000\n"
+"PO-Revision-Date: 2025-01-17 10:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: slack_integration
+#: model:ir.model,name:slack_integration.model_slack_user_mapping
+msgid "Slack to Odoo User Mapping"
+msgstr "Mapeo de Usuario Slack a Odoo"
+
+#. module: slack_integration
+#: model:ir.model.fields,field_description:slack_integration.field_slack_user_mapping__display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: slack_integration
+#: model:ir.model.fields,field_description:slack_integration.field_slack_user_mapping__slack_user_id
+msgid "Slack User ID"
+msgstr "ID de Usuario Slack"
+
+#. module: slack_integration
+#: model:ir.model.fields,field_description:slack_integration.field_slack_user_mapping__slack_team_id
+msgid "Slack Team ID"
+msgstr "ID de Equipo Slack"
+
+#. module: slack_integration
+#: model:ir.model.fields,field_description:slack_integration.field_slack_user_mapping__slack_channel_id
+msgid "DM Channel ID"
+msgstr "ID de Canal DM"
+
+#. module: slack_integration
+#: model:ir.model.fields,field_description:slack_integration.field_slack_user_mapping__slack_display_name
+msgid "Slack Username"
+msgstr "Nombre de Usuario Slack"
+
+#. module: slack_integration
+#: model:ir.model.fields,field_description:slack_integration.field_slack_user_mapping__slack_real_name
+msgid "Slack Real Name"
+msgstr "Nombre Real en Slack"
+
+#. module: slack_integration
+#: model:ir.model.fields,field_description:slack_integration.field_slack_user_mapping__slack_email
+msgid "Slack Email"
+msgstr "Email de Slack"
+
+#. module: slack_integration
+#: model:ir.model.fields,field_description:slack_integration.field_slack_user_mapping__user_id
+msgid "Odoo User"
+msgstr "Usuario Odoo"
+
+#. module: slack_integration
+#: model:ir.model.fields.selection,name:slack_integration.selection__slack_user_mapping__state__pending
+msgid "Pending Authorization"
+msgstr "Autorización Pendiente"
+
+#. module: slack_integration
+#: model:ir.model.fields.selection,name:slack_integration.selection__slack_user_mapping__state__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: slack_integration
+#: model:ir.model.fields.selection,name:slack_integration.selection__slack_user_mapping__state__expired
+msgid "Token Expired"
+msgstr "Token Expirado"
+
+#. module: slack_integration
+#: model:ir.model.fields.selection,name:slack_integration.selection__slack_user_mapping__state__revoked
+msgid "Access Revoked"
+msgstr "Acceso Revocado"
+
+#. module: slack_integration
+#: model:ir.model.fields,field_description:slack_integration.field_slack_user_mapping__state_message
+msgid "State Message"
+msgstr "Mensaje de Estado"
+
+#. module: slack_integration
+#: model:ir.model.fields,field_description:slack_integration.field_slack_user_mapping__connection_date
+msgid "Connected On"
+msgstr "Conectado el"
+
+#. module: slack_integration
+#: model:ir.model.fields,field_description:slack_integration.field_slack_user_mapping__last_used
+msgid "Last Activity"
+msgstr "Última Actividad"
+
+#. module: slack_integration
+#: model:ir.model.fields,field_description:slack_integration.field_slack_user_mapping__last_command
+msgid "Last Command"
+msgstr "Último Comando"
+
+#. module: slack_integration
+#: model:ir.model.fields,field_description:slack_integration.field_slack_user_mapping__command_count
+msgid "Total Commands"
+msgstr "Total de Comandos"
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/slack_user_mapping.py:0
+#, python-format
+msgid "⏳ Waiting for authorization"
+msgstr "⏳ Esperando autorización"
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/slack_user_mapping.py:0
+#, python-format
+msgid "✅ Connected and working"
+msgstr "✅ Conectado y funcionando"
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/slack_user_mapping.py:0
+#, python-format
+msgid "⚠️ Token needs refresh"
+msgstr "⚠️ El token necesita actualizarse"
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/slack_user_mapping.py:0
+#, python-format
+msgid "❌ Access has been revoked"
+msgstr "❌ El acceso ha sido revocado"
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/slack_user_mapping.py:0
+#, python-format
+msgid "❓ Unknown state"
+msgstr "❓ Estado desconocido"
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/slack_user_mapping.py:0
+#, python-format
+msgid "Connection Activated"
+msgstr "Conexión Activada"
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/slack_user_mapping.py:0
+#, python-format
+msgid "Connection Revoked"
+msgstr "Conexión Revocada"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_user_mapping_list
+msgid "Slack User Connections"
+msgstr "Conexiones de Usuarios Slack"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_user_mapping_list
+msgid "Slack User"
+msgstr "Usuario Slack"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_user_mapping_list
+msgid "Commands"
+msgstr "Comandos"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_user_mapping_list
+msgid "Connected"
+msgstr "Conectado"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_user_mapping_form
+msgid "Slack User Connection"
+msgstr "Conexión de Usuario Slack"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_user_mapping_form
+msgid "Activate"
+msgstr "Activar"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_user_mapping_form
+msgid "Revoke Access"
+msgstr "Revocar Acceso"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_user_mapping_form
+msgid "Are you sure you want to revoke this user's access?"
+msgstr "¿Está seguro de que desea revocar el acceso de este usuario?"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_user_mapping_form
+msgid "Slack Information"
+msgstr "Información de Slack"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_user_mapping_form
+msgid "Odoo Information"
+msgstr "Información de Odoo"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_user_mapping_form
+msgid "Usage Statistics"
+msgstr "Estadísticas de Uso"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_user_mapping_form
+msgid "Last Activity Time"
+msgstr "Hora de Última Actividad"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_user_mapping_form
+msgid "Security"
+msgstr "Seguridad"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_user_mapping_search
+msgid "Active"
+msgstr "Activo"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_user_mapping_search
+msgid "Pending"
+msgstr "Pendiente"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_user_mapping_search
+msgid "Expired"
+msgstr "Expirado"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_user_mapping_search
+msgid "Revoked"
+msgstr "Revocado"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_user_mapping_search
+msgid "Used Today"
+msgstr "Usado Hoy"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_user_mapping_search
+msgid "Never Used"
+msgstr "Nunca Usado"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_user_mapping_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_user_mapping_search
+msgid "State"
+msgstr "Estado"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_user_mapping_search
+msgid "Connection Date"
+msgstr "Fecha de Conexión"
+
+#. module: slack_integration
+#: model:ir.actions.act_window,name:slack_integration.action_slack_user_mapping
+#: model:ir.ui.menu,name:slack_integration.menu_slack_user_mapping
+msgid "Slack User Connections"
+msgstr "Conexiones de Usuarios Slack"
+
+#. module: slack_integration
+#: model_terms:ir.actions.act_window,help:slack_integration.action_slack_user_mapping
+msgid "No Slack user connections yet"
+msgstr "No hay conexiones de usuarios Slack aún"
+
+#. module: slack_integration
+#: model_terms:ir.actions.act_window,help:slack_integration.action_slack_user_mapping
+msgid "Slack users can connect their Odoo accounts by messaging the bot and using the 'connect' command."
+msgstr "Los usuarios de Slack pueden conectar sus cuentas de Odoo enviando un mensaje al bot y usando el comando 'conectar'."
+
+#. module: slack_integration
+#: model:ir.ui.menu,name:slack_integration.menu_slack_user_mapping
+msgid "User Connections"
+msgstr "Conexiones de Usuarios"
+
+#. module: slack_integration
+#: model:ir.ui.menu,name:slack_integration.menu_slack_integration_root
+msgid "Slack Integration"
+msgstr "Integración Slack"
+
+#. module: slack_integration
+#: model:ir.ui.menu,name:slack_integration.menu_slack_conversation
+msgid "Bot Conversations"
+msgstr "Conversaciones del Bot"
+
+#. module: slack_integration
+#: model:ir.ui.menu,name:slack_integration.menu_slack_security_log
+msgid "Security Log"
+msgstr "Registro de Seguridad"
+
+#. module: slack_integration
+#: model:ir.model,name:slack_integration.model_slack_conversation
+msgid "Slack Bot Conversation"
+msgstr "Conversación del Bot de Slack"
+
+#. module: slack_integration
+#: model:ir.model.fields,field_description:slack_integration.field_slack_conversation__channel_id
+msgid "DM Channel ID"
+msgstr "ID del Canal DM"
+
+#. module: slack_integration
+#: model:ir.model.fields,field_description:slack_integration.field_slack_conversation__mapping_id
+msgid "User Mapping"
+msgstr "Mapeo de Usuario"
+
+#. module: slack_integration
+#: model:ir.model.fields,field_description:slack_integration.field_slack_conversation__last_message
+msgid "Last Message"
+msgstr "Último Mensaje"
+
+#. module: slack_integration
+#: model:ir.model.fields,field_description:slack_integration.field_slack_conversation__last_message_date
+msgid "Last Message Date"
+msgstr "Fecha del Último Mensaje"
+
+#. module: slack_integration
+#: model:ir.model.fields,field_description:slack_integration.field_slack_conversation__last_response
+msgid "Last Response"
+msgstr "Última Respuesta"
+
+#. module: slack_integration
+#: model:ir.model.fields,field_description:slack_integration.field_slack_conversation__message_count
+msgid "Total Messages"
+msgstr "Total de Mensajes"
+
+#. module: slack_integration
+#: model:ir.model.fields,field_description:slack_integration.field_slack_conversation__started_date
+msgid "Started Date"
+msgstr "Fecha de Inicio"
+
+#. module: slack_integration
+#: model:ir.model.fields.selection,name:slack_integration.selection__slack_conversation__state__new
+msgid "New Conversation"
+msgstr "Conversación Nueva"
+
+#. module: slack_integration
+#: model:ir.model.fields.selection,name:slack_integration.selection__slack_conversation__state__active
+msgid "Active"
+msgstr "Activa"
+
+#. module: slack_integration
+#: model:ir.model.fields.selection,name:slack_integration.selection__slack_conversation__state__waiting
+msgid "Waiting for User"
+msgstr "Esperando al Usuario"
+
+#. module: slack_integration
+#: model:ir.model.fields.selection,name:slack_integration.selection__slack_conversation__state__authenticated
+msgid "Authenticated"
+msgstr "Autenticado"
+
+#. module: slack_integration
+#: model:ir.model.fields.selection,name:slack_integration.selection__slack_conversation__state__idle
+msgid "Idle"
+msgstr "Inactiva"
+
+#. module: slack_integration
+#: model:ir.model.fields,field_description:slack_integration.field_res_config_settings__slack_bot_dm_token
+msgid "Bot User OAuth Token"
+msgstr "Token OAuth del Bot"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Bot Token (DMs)"
+msgstr "Token del Bot (DMs)"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Bot Token (Commands)"
+msgstr "Token del Bot (Comandos)"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Bot User OAuth Token for Direct Messages and Event Subscriptions (REQUIRED for bot functionality)"
+msgstr "Token OAuth del Bot para Mensajes Directos y Suscripciones de Eventos (REQUERIDO para funcionalidad del bot)"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "This token needs the following scopes: chat:write, im:history, im:read, im:write, users:read"
+msgstr "Este token necesita los siguientes scopes: chat:write, im:history, im:read, im:write, users:read"
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Complete Setup Guide"
+msgstr "Guía de Configuración Completa"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "To configure Slack correctly, follow these steps:"
+msgstr "Para configurar Slack correctamente, sigue estos pasos:"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Create a Slack App"
+msgstr "Crea una Slack App"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Add Bot Token Scopes"
+msgstr "Añade Bot Token Scopes"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Install the app"
+msgstr "Instala la app"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "in your workspace and copy the Bot Token (xoxb-...)"
+msgstr "en tu workspace y copia el Bot Token (xoxb-...)"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Copy the Signing Secret"
+msgstr "Copia el Signing Secret"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "from App Credentials"
+msgstr "desde App Credentials"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Paste the tokens"
+msgstr "Pega los tokens"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "in the fields below and save"
+msgstr "en los campos de abajo y guarda"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Configure the URLs"
+msgstr "Configura las URLs"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "in your Slack App (see below)"
+msgstr "en tu Slack App (ver más abajo)"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Need detailed help?"
+msgstr "¿Necesitas ayuda detallada?"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "URLs to configure in your Slack App"
+msgstr "URLs para configurar en tu Slack App"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Replace \"your-odoo-domain.com\" with your actual domain."
+msgstr "Sustituye \"your-odoo-domain.com\" con tu dominio real."
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Configure in: Slack App"
+msgstr "Configura en: Slack App"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Important:"
+msgstr "Importante:"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "After configuring these URLs in Slack, come back here and test the integration by sending a direct message to the bot."
+msgstr "Después de configurar estas URLs en Slack, vuelve aquí y prueba la integración enviando un mensaje directo al bot."
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Enable Slack Integration"
+msgstr "Activar Integración Slack"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Enable Slack slash command integration"
+msgstr "Activa la integración de Slack con el CRM"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Verification Token"
+msgstr "Verification Token"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Slack app verification token for validating slash commands (REQUIRED)"
+msgstr "Token de verificación de la app de Slack para validar comandos (REQUERIDO)"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Signing Secret"
+msgstr "Signing Secret"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Slack signing secret for cryptographic request verification (REQUIRED)"
+msgstr "Secreto de firma de Slack para verificación criptográfica de peticiones (REQUERIDO)"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Bot Token (Commands)"
+msgstr "Token del Bot (Comandos)"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Slack bot token for opening modals and Web API calls (REQUIRED)"
+msgstr "Token del bot de Slack para abrir modales y llamadas a la API Web (REQUERIDO)"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Rate Limiting"
+msgstr "Límite de Peticiones"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Configure rate limits for Slack requests to prevent abuse"
+msgstr "Configura límites de peticiones de Slack para prevenir abusos"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Commands/minute"
+msgstr "Comandos/minuto"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Interactions/minute"
+msgstr "Interacciones/minuto"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Higher values allow more concurrent usage but may impact server performance. Default: 300 commands/min, 600 interactions/min."
+msgstr "Valores más altos permiten más uso concurrente pero pueden afectar el rendimiento del servidor. Por defecto: 300 comandos/min, 600 interacciones/min."
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Slack Integration Endpoints"
+msgstr "Endpoints de Integración Slack"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Copy these URLs to configure your Slack App"
+msgstr "Copia estas URLs para configurar tu Slack App"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Complete Setup Guide"
+msgstr "Configuración Paso a Paso"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "PASO 1: Crear Slack App"
+msgstr "PASO 1: Crear Slack App"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "PASO 2: Añadir Scopes y obtener Bot Token"
+msgstr "PASO 2: Añadir Scopes y obtener Bot Token"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "PASO 3: Copiar Signing Secret"
+msgstr "PASO 3: Copiar Signing Secret"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "PASO 4: Configurar tokens en Odoo"
+msgstr "PASO 4: Configurar tokens en Odoo"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "PASO 5: Configurar URLs en Slack App"
+msgstr "PASO 5: Configurar URLs en Slack App"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Step-by-Step Setup"
+msgstr "Configuración Paso a Paso"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "STEP 1: Create Slack App"
+msgstr "PASO 1: Crear Slack App"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Go to"
+msgstr "Ve a"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Click \"Create New App\" → \"From scratch\""
+msgstr "Click en \"Create New App\" → \"From scratch\""
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Give it a name (e.g., \"Odoo CRM Bot\") and select your workspace"
+msgstr "Dale un nombre (ej: \"Odoo CRM Bot\") y selecciona tu workspace"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "STEP 2: Add Scopes and get Bot Token"
+msgstr "PASO 2: Añadir Scopes y obtener Bot Token"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "In your app, go to"
+msgstr "En tu app, ve a"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Scroll to"
+msgstr "Baja a"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "and add these 6 scopes:"
+msgstr "y añade estos 6 scopes:"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Scroll up and click"
+msgstr "Sube arriba y click en"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Authorize"
+msgstr "Autoriza"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Copy the"
+msgstr "Copia el"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "(starts with xoxb-)"
+msgstr "(empieza con xoxb-)"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "STEP 3: Copy Signing Secret"
+msgstr "PASO 3: Copiar Signing Secret"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "STEP 4: Configure tokens in Odoo"
+msgstr "PASO 4: Configurar tokens en Odoo"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Enable \"Enable Slack Integration\" below ↓"
+msgstr "Activa \"Activar Integración Slack\" abajo ↓"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Paste the"
+msgstr "Pega el"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "and"
+msgstr "y el"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Save"
+msgstr "Guarda"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "this configuration"
+msgstr "esta configuración"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "STEP 5: Configure URLs in Slack App"
+msgstr "PASO 5: Configurar URLs en Slack App"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Enable and paste the events URL (see below ↓)"
+msgstr "Activa y pega la URL de eventos (ver abajo ↓)"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Subscribe to events:"
+msgstr "Suscribe eventos:"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Paste the interactivity URL (see below ↓)"
+msgstr "Pega la URL de interactividad (ver abajo ↓)"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Redirect URLs: Add the OAuth URL (see below ↓)"
+msgstr "Redirect URLs: Añade la URL de OAuth (ver abajo ↓)"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "STEP 6: Enable bot in Slack"
+msgstr "PASO 6: Activar el bot en Slack"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "In Slack, go to"
+msgstr "En Slack, ve a la sección"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "section (left sidebar)"
+msgstr "(barra lateral izquierda)"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Search for your bot by the name you gave it"
+msgstr "Busca tu bot por el nombre que le diste"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Click on the bot to enable it and open a Direct Message (DM)"
+msgstr "Click en el bot para activarlo y abrir un mensaje directo (DM)"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Type"
+msgstr "Escribe"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "to start"
+msgstr "para empezar"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Done!"
+msgstr "¡Listo!"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "The bot will send you a link to connect your Odoo account."
+msgstr "El bot te enviará un link para conectar tu cuenta de Odoo."
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Go to <strong>App Home</strong> → <strong>Show Tabs</strong> → Enable <strong>Messages Tab</strong>"
+msgstr "Ve a <strong>App Home</strong> → <strong>Show Tabs</strong> → Activa <strong>Messages Tab</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "STEP 5: Configure URLs and Events in Slack App"
+msgstr "PASO 5: Configurar URLs y Eventos en Slack App"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Copy the 3 URLs from the table below before starting this step."
+msgstr "Copia las 3 URLs de la tabla inferior antes de empezar este paso."
+
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "In your Slack App, go to"
+msgstr "En tu Slack App, ve a"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Toggle"
+msgstr "Activa"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Enable Events"
+msgstr "Enable Events"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "to"
+msgstr "a"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "ON"
+msgstr "ON"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "In"
+msgstr "En"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Request URL"
+msgstr "Request URL"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "paste the"
+msgstr "pega la"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Events URL"
+msgstr "URL de Eventos"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "from below ↓"
+msgstr "de abajo ↓"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Wait for the green ✓ \"Verified\" message to appear"
+msgstr "Espera a que aparezca el mensaje verde ✓ \"Verified\""
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Scroll down to"
+msgstr "Baja a"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Subscribe to bot events"
+msgstr "Subscribe to bot events"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Click"
+msgstr "Click en"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Add Bot User Event"
+msgstr "Add Bot User Event"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "and add:"
+msgstr "y añade:"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "(Optional) Add also:"
+msgstr "(Opcional) Añade también:"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Save Changes"
+msgstr "Save Changes"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "at the bottom"
+msgstr "al final"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "If prompted, click"
+msgstr "Si te lo pide, click en"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "reinstall your app"
+msgstr "reinstall your app"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "B) Interactivity & Shortcuts:"
+msgstr "B) Interactivity & Shortcuts:"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Interactivity"
+msgstr "Interactivity"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Interactive URL"
+msgstr "URL de Interactividad"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "C) OAuth Redirect:"
+msgstr "C) OAuth Redirect:"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Redirect URLs"
+msgstr "Redirect URLs"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Add New Redirect URL"
+msgstr "Add New Redirect URL"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "OAuth URL"
+msgstr "URL de OAuth"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Add"
+msgstr "Add"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "then"
+msgstr "luego"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Save URLs"
+msgstr "Save URLs"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "STEP 6: Enable bot in Slack"
+msgstr "PASO 6: Activar el bot en Slack"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Apps"
+msgstr "Apps"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Step-by-Step Setup Guide"
+msgstr "Guía de Configuración Paso a Paso"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "(click to expand)"
+msgstr "(click para expandir)"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Done!"
+msgstr "¡Listo!"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Slack Bot Configuration"
+msgstr "Configuración del Bot de Slack"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Configure Slack Direct Message bot and slash commands"
+msgstr "Configura el bot de mensajes directos de Slack y comandos"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "<strong>STEP 1: Create Slack App</strong>"
+msgstr "<strong>PASO 1: Crear Slack App</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "<strong>STEP 2: Get Basic Credentials</strong>"
+msgstr "<strong>PASO 2: Obtener Credenciales Básicas</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "<strong>STEP 3: Add Scopes, Install App and get Bot Token</strong>"
+msgstr "<strong>PASO 3: Añadir Scopes, Instalar App y obtener Bot Token</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "<strong>STEP 4: Configure URLs and Events in Slack App</strong>"
+msgstr "<strong>PASO 4: Configurar URLs y Eventos en Slack App</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "<strong>A) Event Subscriptions:</strong>"
+msgstr "<strong>A) Event Subscriptions:</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "<strong>B) Interactivity &amp; Shortcuts:</strong>"
+msgstr "<strong>B) Interactivity &amp; Shortcuts:</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "<strong>C) OAuth Redirect:</strong>"
+msgstr "<strong>C) OAuth Redirect:</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "<i class=\"fa fa-link\"/> URLs to configure in your Slack App"
+msgstr "<i class=\"fa fa-link\"/> URLs para configurar en tu Slack App"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "<strong>Replace \"your-odoo-domain.com\" with your actual domain.</strong>"
+msgstr "<strong>Reemplaza \"your-odoo-domain.com\" con tu dominio real.</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "<strong>1. Event Subscriptions:</strong>"
+msgstr "<strong>1. Event Subscriptions:</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "<strong>2. Interactive Components:</strong>"
+msgstr "<strong>2. Interactive Components:</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "<strong>3. OAuth Redirect:</strong>"
+msgstr "<strong>3. OAuth Redirect:</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "<code>https://your-odoo-domain.com/slack/events</code>"
+msgstr "<code>https://your-odoo-domain.com/slack/events</code>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "<code>https://your-odoo-domain.com/slack/interactive</code>"
+msgstr "<code>https://your-odoo-domain.com/slack/interactive</code>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "<code>https://your-odoo-domain.com/slack/oauth/authorize</code>"
+msgstr "<code>https://your-odoo-domain.com/slack/oauth/authorize</code>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "(Optional) Also add: <code>app_mention</code>"
+msgstr "(Opcional) Añade también: <code>app_mention</code>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "<strong>Save</strong> this configuration (now all 3 tokens are filled)"
+msgstr "<strong>Guarda</strong> esta configuración (ahora los 3 tokens están completos)"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "<code>im:write</code>, <code>im:history</code>, <code>im:read</code>"
+msgstr "<code>im:write</code>, <code>im:history</code>, <code>im:read</code>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_security_log_tree
+msgid "No security events recorded yet"
+msgstr "No se han registrado eventos de seguridad aún"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_security_log_tree
+msgid "This log tracks all Slack integration security events including:"
+msgstr "Este registro rastrea todos los eventos de seguridad de la integración Slack incluyendo:"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_security_log_tree
+msgid "Authentication attempts (success/failure)"
+msgstr "Intentos de autenticación (éxito/fallo)"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_security_log_tree
+msgid "Invalid signatures or tokens"
+msgstr "Firmas o tokens inválidos"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_security_log_tree
+msgid "Rate limiting violations"
+msgstr "Violaciones de límite de tasa"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_security_log_tree
+msgid "Possible replay attacks"
+msgstr "Posibles ataques de repetición"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.view_slack_security_log_tree
+msgid "Suspicious activity patterns"
+msgstr "Patrones de actividad sospechosa"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Copy the <strong>Verification Token</strong> → Save it for later"
+msgstr "Copia el <strong>Verification Token</strong> → Guárdalo para más tarde"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Copy the <strong>Signing Secret</strong> → Save it for later"
+msgstr "Copia el <strong>Signing Secret</strong> → Guárdalo para más tarde"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Copy the <strong>Bot User OAuth Token</strong> (starts with xoxb-) → Save it for later"
+msgstr "Copia el <strong>Bot User OAuth Token</strong> (empieza con xoxb-) → Guárdalo para más tarde"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Paste the <strong>Verification Token</strong>, <strong>Signing Secret</strong>, and <strong>Bot Token</strong>"
+msgstr "Pega el <strong>Verification Token</strong>, <strong>Signing Secret</strong> y <strong>Bot Token</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Go to <strong>Install App</strong> menu → Click <strong>\"Install to Workspace\"</strong> → Authorize"
+msgstr "Ve al menú <strong>Install App</strong> → Haz clic en <strong>\"Install to Workspace\"</strong> → Autoriza"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "📋 Step-by-Step Setup Guide <span style=\"font-size: 0.85rem; font-weight: normal; opacity: 0.8;\">(click to expand)</span>"
+msgstr "📋 Guía de Configuración Paso a Paso <span style=\"font-size: 0.85rem; font-weight: normal; opacity: 0.8;\">(clic para expandir)</span>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Go to Basic Information → App Credentials"
+msgstr "Ve a Basic Information → App Credentials"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Go to OAuth & Permissions"
+msgstr "Ve a OAuth & Permissions"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Scroll to Bot Token Scopes and add these 6 scopes:"
+msgstr "Desplázate a Bot Token Scopes y añade estos 6 scopes:"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Copy the 3 URLs from the table below before starting this step."
+msgstr "Copia las 3 URLs de la tabla de abajo antes de comenzar este paso."
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "<em>Copy the 3 URLs from the table below before starting this step.</em>"
+msgstr "<em>Copia las 3 URLs de la tabla de abajo antes de comenzar este paso.</em>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "In your Slack App, go to Event Subscriptions"
+msgstr "En tu Slack App, ve a Event Subscriptions"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Turn Enable Events to ON"
+msgstr "Activa Enable Events a ON"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "In Request URL, paste the Events URL from below ↓"
+msgstr "En Request URL, pega la Events URL de abajo ↓"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Scroll down to Subscribe to bot events"
+msgstr "Desplázate a Subscribe to bot events"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Click Add Bot User Event and add: message.im"
+msgstr "Haz clic en Add Bot User Event y añade: message.im"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Click Save Changes at the bottom"
+msgstr "Haz clic en Save Changes al final"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "If prompted, click reinstall your app"
+msgstr "Si se solicita, haz clic en reinstalar tu app"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Go to Interactivity & Shortcuts"
+msgstr "Ve a Interactivity & Shortcuts"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Turn Interactivity to ON"
+msgstr "Activa Interactivity a ON"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "In Request URL, paste the Interactive URL from below ↓"
+msgstr "En Request URL, pega la Interactive URL de abajo ↓"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Click Save Changes"
+msgstr "Haz clic en Save Changes"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Go to OAuth & Permissions"
+msgstr "Ve a OAuth & Permissions"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Scroll to Redirect URLs"
+msgstr "Desplázate a Redirect URLs"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Click Add New Redirect URL"
+msgstr "Haz clic en Add New Redirect URL"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Paste the OAuth URL from below ↓"
+msgstr "Pega la OAuth URL de abajo ↓"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Click Add, then Save URLs"
+msgstr "Haz clic en Add, luego en Save URLs"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "<strong>STEP 6: Enable bot in Slack</strong>"
+msgstr "<strong>PASO 6: Activar bot en Slack</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "In Slack, go to Apps section (left sidebar)"
+msgstr "En Slack, ve a la sección Apps (barra lateral izquierda)"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Type \"help\" to get started"
+msgstr "Escribe \"help\" para comenzar"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "✅ Done! The bot will send you a link to connect your Odoo account."
+msgstr "✅ ¡Listo! El bot te enviará un enlace para conectar tu cuenta de Odoo."
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Wait for the green ✓ \"Verified\" message to appear"
+msgstr "Espera a que aparezca el mensaje verde ✓ \"Verified\""
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "If prompted, click <strong>reinstall your app</strong>"
+msgstr "Si se solicita, haz clic en <strong>reinstall your app</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "In Slack, go to the <strong>Apps</strong> section (left sidebar)"
+msgstr "En Slack, ve a la sección <strong>Apps</strong> (barra lateral izquierda)"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Search for your bot by the name you gave it"
+msgstr "Busca tu bot por el nombre que le diste"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Click the bot to enable it and open a direct message (DM)"
+msgstr "Haz clic en el bot para activarlo y abrir un mensaje directo (DM)"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Type <strong>\"help\"</strong> to get started"
+msgstr "Escribe <strong>\"help\"</strong> para comenzar"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "<strong>✅ Done!</strong> The bot will send you a link to connect your Odoo account."
+msgstr "<strong>✅ ¡Listo!</strong> El bot te enviará un enlace para conectar tu cuenta de Odoo."
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Click <strong>Add</strong>, then <strong>Save URLs</strong>"
+msgstr "Haz clic en <strong>Add</strong>, luego en <strong>Save URLs</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Copy the <strong>Verification Token</strong> → Paste it in the field below"
+msgstr "Copia el <strong>Verification Token</strong> → Pégalo en el campo de abajo"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Copy the <strong>Signing Secret</strong> → Paste it in the field below"
+msgstr "Copia el <strong>Signing Secret</strong> → Pégalo en el campo de abajo"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Copy the <strong>Bot User OAuth Token</strong> (starts with xoxb-) → Paste it in the field below"
+msgstr "Copia el <strong>Bot User OAuth Token</strong> (empieza con xoxb-) → Pégalo en el campo de abajo"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "<strong>STEP 5: Enable the bot in Slack</strong>"
+msgstr "<strong>PASO 5: Activar el bot en Slack</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "In your Slack App, go to <strong>Event Subscriptions</strong>"
+msgstr "En tu Slack App, ve a <strong>Event Subscriptions</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Turn <strong>Enable Events</strong> to <strong>ON</strong>"
+msgstr "Activa <strong>Enable Events</strong> a <strong>ON</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "In <strong>Request URL</strong>, paste the <strong>Events URL</strong> from below ↓"
+msgstr "En <strong>Request URL</strong>, pega la <strong>Events URL</strong> de abajo ↓"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Scroll to <strong>Subscribe to bot events</strong>"
+msgstr "Desplázate a <strong>Subscribe to bot events</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Click <strong>Add Bot User Event</strong> and add: <code>message.im</code>"
+msgstr "Haz clic en <strong>Add Bot User Event</strong> y añade: <code>message.im</code>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Click <strong>Save Changes</strong> at the bottom"
+msgstr "Haz clic en <strong>Save Changes</strong> al final"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Go to <strong>Interactivity &amp; Shortcuts</strong>"
+msgstr "Ve a <strong>Interactivity &amp; Shortcuts</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Turn <strong>Interactivity</strong> to <strong>ON</strong>"
+msgstr "Activa <strong>Interactivity</strong> a <strong>ON</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "In <strong>Request URL</strong>, paste the <strong>Interactive URL</strong> from below ↓"
+msgstr "En <strong>Request URL</strong>, pega la <strong>Interactive URL</strong> de abajo ↓"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Click <strong>Save Changes</strong>"
+msgstr "Haz clic en <strong>Save Changes</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Go to <strong>OAuth &amp; Permissions</strong>"
+msgstr "Ve a <strong>OAuth &amp; Permissions</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Scroll to <strong>Redirect URLs</strong>"
+msgstr "Desplázate a <strong>Redirect URLs</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Click <strong>Add New Redirect URL</strong>"
+msgstr "Haz clic en <strong>Add New Redirect URL</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Paste the <strong>OAuth URL</strong> from below ↓"
+msgstr "Pega la <strong>OAuth URL</strong> de abajo ↓"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "Enable <strong>\"Allow users to send Slash commands and messages from the messages tab\"</strong>"
+msgstr "Activa <strong>\"Allow users to send Slash commands and messages from the messages tab\"</strong>"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "In <strong>Request URL</strong>, paste the <strong>Interactivity URL</strong> from below ↓"
+msgstr "En <strong>Request URL</strong>, pega la <strong>Interactivity URL</strong> de abajo ↓"
+
+#. module: slack_integration
+#: model_terms:ir.ui.view,arch_db:slack_integration.res_config_settings_view_form_slack
+msgid "<strong>Note:</strong> If you cannot send messages to the bot, try signing out and signing back in to Slack to refresh your session."
+msgstr "<strong>Nota:</strong> Si no puedes enviar mensajes al bot, prueba a cerrar sesión y volver a iniciar sesión en Slack para refrescar tu sesión."
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/res_config_settings.py:0
+#, python-format
+msgid "Invalid Slack Bot Token format. Bot tokens should start with 'xoxb-'. Please check your token in the Slack App settings."
+msgstr "Formato de Token de Bot de Slack inválido. Los tokens de bot deben comenzar con 'xoxb-'. Por favor verifica tu token en la configuración de la App de Slack."
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/res_config_settings.py:0
+#, python-format
+msgid "Slack Bot Token seems too short. Please verify you copied the complete token."
+msgstr "El Token de Bot de Slack parece demasiado corto. Por favor verifica que copiaste el token completo."
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/res_config_settings.py:0
+#, python-format
+msgid "Slack Signing Secret seems too short. It should be a 32-character hexadecimal string. Please verify you copied the complete secret."
+msgstr "El Signing Secret de Slack parece demasiado corto. Debe ser una cadena hexadecimal de 32 caracteres. Por favor verifica que copiaste el secreto completo."
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/res_config_settings.py:0
+#, python-format
+msgid "Invalid Slack Signing Secret format. It should be a hexadecimal string. Please check your signing secret in the Slack App settings."
+msgstr "Formato de Signing Secret de Slack inválido. Debe ser una cadena hexadecimal. Por favor verifica tu signing secret en la configuración de la App de Slack."
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/res_config_settings.py:0
+#, python-format
+msgid "Slack Bot Token is required when Slack Integration is enabled."
+msgstr "El Token de Bot de Slack es requerido cuando la Integración de Slack está habilitada."
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/res_config_settings.py:0
+#, python-format
+msgid "Slack Signing Secret is required when Slack Integration is enabled for security purposes."
+msgstr "El Signing Secret de Slack es requerido cuando la Integración de Slack está habilitada por razones de seguridad."
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/slack_user_mapping.py:0
+#, python-format
+msgid "This Slack user is already mapped to an Odoo user!"
+msgstr "¡Este usuario de Slack ya está vinculado a un usuario de Odoo!"
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/slack_user_mapping.py:0
+#, python-format
+msgid "Unknown"
+msgstr "Desconocido"
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/slack_user_mapping.py:0
+#, python-format
+msgid "Not Connected"
+msgstr "No Conectado"
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/slack_user_mapping.py:0
+#, python-format
+msgid "⚠️ Token needs refresh"
+msgstr "⚠️ El token necesita renovarse"
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/slack_user_mapping.py:0
+#, python-format
+msgid "⚠️ Access expired - please reconnect"
+msgstr "⚠️ Acceso expirado - por favor reconecta"
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/slack_user_mapping.py:0
+#, python-format
+msgid "⚠️ Access validation failed: %s"
+msgstr "⚠️ Falló la validación de acceso: %s"
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/slack_user_mapping.py:0
+#, python-format
+msgid "Cannot activate connection without a valid user"
+msgstr "No se puede activar la conexión sin un usuario válido"
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/slack_user_mapping.py:0
+#, python-format
+msgid "✅ Slack connection activated for user %s"
+msgstr "✅ Conexión de Slack activada para el usuario %s"
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/slack_user_mapping.py:0
+#, python-format
+msgid "Please select an Odoo user before activating the connection"
+msgstr "Por favor selecciona un usuario de Odoo antes de activar la conexión"
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/slack_user_mapping.py:0
+#, python-format
+msgid "Only pending connections can be activated"
+msgstr "Solo las conexiones pendientes pueden ser activadas"
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/slack_user_mapping.py:0
+#, python-format
+msgid "❌ Slack connection revoked by %s"
+msgstr "❌ Conexión de Slack revocada por %s"
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/slack_conversation.py:0
+#, python-format
+msgid "Conversation with %s"
+msgstr "Conversación con %s"
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/slack_security_log.py:0
+#, python-format
+msgid "🔒 Security Event: %s from IP %s"
+msgstr "🔒 Evento de Seguridad: %s desde IP %s"
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/slack_security_log.py:0
+#, python-format
+msgid "Rate limit exceeded: %s/%s requests in last minute"
+msgstr "Límite de tasa excedido: %s/%s solicitudes en el último minuto"
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/slack_security_log.py:0
+#, python-format
+msgid "Rate limit exceeded. Please try again later."
+msgstr "Límite de tasa excedido. Por favor intenta de nuevo más tarde."
+
+#. module: slack_integration
+#: code:addons/slack_integration/models/slack_security_log.py:0
+#, python-format
+msgid "Cleaned up %s security log entries older than %s days"
+msgstr "Se limpiaron %s entradas del registro de seguridad anteriores a %s días"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_oauth.py:0
+#, python-format
+msgid "Missing parameters"
+msgstr "Parámetros faltantes"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_oauth.py:0
+#, python-format
+msgid "Invalid authorization request. Please try again from Slack."
+msgstr "Solicitud de autorización inválida. Por favor intenta de nuevo desde Slack."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_oauth.py:0
+#, python-format
+msgid "Invalid request"
+msgstr "Solicitud inválida"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_oauth.py:0
+#, python-format
+msgid "No pending authorization found. Please use the \"connect\" command in Slack."
+msgstr "No se encontró autorización pendiente. Por favor usa el comando \"connect\" en Slack."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_oauth.py:0
+#, python-format
+msgid "Invalid or expired token"
+msgstr "Token inválido o expirado"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_oauth.py:0
+#, python-format
+msgid "This authorization link has expired. Please request a new one from Slack."
+msgstr "Este enlace de autorización ha expirado. Por favor solicita uno nuevo desde Slack."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_oauth.py:0
+#, python-format
+msgid "Linking failed"
+msgstr "Falló la vinculación"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_oauth.py:0
+#, python-format
+msgid "Could not link accounts: %s"
+msgstr "No se pudieron vincular las cuentas: %s"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_oauth.py:0
+#, python-format
+msgid "✅ **Success!**\\n\\nYour Slack account is now linked to Odoo user: *%(user)s*\\nEmail: %(email)s\\n\\nYou can now use all CRM commands with your permissions.\\nType 'help' to see available commands."
+msgstr "✅ **¡Éxito!**\\n\\nTu cuenta de Slack ahora está vinculada al usuario de Odoo: *%(user)s*\\nEmail: %(email)s\\n\\nAhora puedes usar todos los comandos CRM con tus permisos.\\nEscribe 'help' para ver los comandos disponibles."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Security configuration missing"
+msgstr "Falta la configuración de seguridad"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Missing security headers"
+msgstr "Faltan encabezados de seguridad"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Request timestamp verification failed"
+msgstr "Falló la verificación de timestamp de la solicitud"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Invalid timestamp"
+msgstr "Timestamp inválido"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Invalid request signature"
+msgstr "Firma de solicitud inválida"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Request verification failed"
+msgstr "Falló la verificación de la solicitud"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "No payload provided"
+msgstr "No se proporcionó payload"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Invalid payload format"
+msgstr "Formato de payload inválido"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "⚠️ Please connect your account first using `connect`"
+msgstr "⚠️ Por favor conecta tu cuenta primero usando `connect`"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "❌ Opportunity not found: %s"
+msgstr "❌ Oportunidad no encontrada: %s"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "❌ Invalid token format: %s"
+msgstr "❌ Formato de token inválido: %s"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "No partner"
+msgstr "Sin cliente"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "No email"
+msgstr "Sin email"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "No phone"
+msgstr "Sin teléfono"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "No stage"
+msgstr "Sin etapa"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "€%s"
+msgstr "€%s"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "€0.00"
+msgstr "€0,00"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "%s%%"
+msgstr "%s%%"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "0.0%"
+msgstr "0,0%"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Unassigned"
+msgstr "Sin asignar"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Not set"
+msgstr "No establecido"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "No tags"
+msgstr "Sin etiquetas"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "📊 Opportunity Details"
+msgstr "📊 Detalles de la Oportunidad"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "*%s*\n• Odoo ID: `%s`\n• Stage: %s\n• Probability: %s\n• Expected Revenue: %s\n• Expected Closing: %s"
+msgstr "*%s*\n• ID de Odoo: `%s`\n• Etapa: %s\n• Probabilidad: %s\n• Ingresos Esperados: %s\n• Cierre Esperado: %s"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "*Partner Information:*\n• Name: %s\n• Email: %s\n• Phone: %s"
+msgstr "*Información del Cliente:*\n• Nombre: %s\n• Email: %s\n• Teléfono: %s"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "*Salesperson:*\n%s"
+msgstr "*Comercial:*\n%s"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "*Tags:*\n%s"
+msgstr "*Etiquetas:*\n%s"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "👁️ View in Odoo"
+msgstr "👁️ Ver en Odoo"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "📝 Add Note"
+msgstr "📝 Añadir Nota"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "🔄 Move Stage"
+msgstr "🔄 Mover Etapa"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Opportunity: %s"
+msgstr "Oportunidad: %s"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Unauthorized"
+msgstr "No autorizado"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Internal error"
+msgstr "Error interno"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Add Note"
+msgstr "Añadir Nota"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Adding note to opportunity: *%s*"
+msgstr "Añadiendo nota a la oportunidad: *%s*"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Enter your note here..."
+msgstr "Escribe tu nota aquí..."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Note"
+msgstr "Nota"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "No bot token configured for modal!"
+msgstr "¡No hay token de bot configurado para el modal!"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Add Note to Opportunity"
+msgstr "Añadir Nota a la Oportunidad"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Select an opportunity and add a note"
+msgstr "Selecciona una oportunidad y añade una nota"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Select an opportunity"
+msgstr "Selecciona una oportunidad"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Opportunity"
+msgstr "Oportunidad"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Search Opportunities"
+msgstr "Buscar Oportunidades"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Search"
+msgstr "Buscar"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "🔍 *Search for opportunities*\n\nEnter a term to search in opportunity names and partner names."
+msgstr "🔍 *Buscar oportunidades*\n\nIntroduce un término para buscar en nombres de oportunidades y clientes."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Enter search term..."
+msgstr "Introduce término de búsqueda..."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Search Term"
+msgstr "Término de Búsqueda"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Move Opportunity Stage"
+msgstr "Mover Etapa de Oportunidad"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Move"
+msgstr "Mover"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "%s (current)"
+msgstr "%s (actual)"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "None"
+msgstr "Ninguna"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "*Moving opportunity:*\n%s\n\n*Current stage:* %s"
+msgstr "*Moviendo oportunidad:*\n%s\n\n*Etapa actual:* %s"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Select new stage"
+msgstr "Selecciona nueva etapa"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "New Stage"
+msgstr "Nueva Etapa"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Move Opportunity"
+msgstr "Mover Oportunidad"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Select an opportunity and the stage to move it to"
+msgstr "Selecciona una oportunidad y la etapa a la que moverla"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Select opportunity"
+msgstr "Selecciona oportunidad"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Please connect your account first"
+msgstr "Por favor conecta tu cuenta primero"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Error: Opportunity or stage not found"
+msgstr "Error: Oportunidad o etapa no encontrada"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Error moving stage. Please try again."
+msgstr "Error al mover etapa. Por favor intenta de nuevo."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Error moving opportunity. Please try again."
+msgstr "Error al mover oportunidad. Por favor intenta de nuevo."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Error adding note. Please try again."
+msgstr "Error al añadir nota. Por favor intenta de nuevo."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Opportunity not found: %s"
+msgstr "Oportunidad no encontrada: %s"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Opportunity %s not found"
+msgstr "Oportunidad %s no encontrada"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "❌ Sorry, something went wrong. Please try again."
+msgstr "❌ Lo siento, algo salió mal. Por favor intenta de nuevo."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Hi! I work better in DMs. Send me a direct message!"
+msgstr "¡Hola! Funciono mejor en mensajes directos. ¡Envíame un mensaje directo!"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "👋 Hello! I'm the Slack CRM Bot.\n\nI can help you search and manage CRM opportunities.\nType 'help' to see what I can do!"
+msgstr "👋 ¡Hola! Soy el Bot de CRM de Slack.\n\n¡Puedo ayudarte a buscar y gestionar oportunidades de CRM!\nEscribe 'help' para ver qué puedo hacer!"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "👋 Hi! I'm the Slack CRM Bot.\n\nYou need to connect your Odoo account first.\nType 'connect' to get started!"
+msgstr "👋 ¡Hola! Soy el Bot de CRM de Slack.\n\nNecesitas conectar tu cuenta de Odoo primero.\n¡Escribe 'connect' para empezar!"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "✅ You're already connected as %s!\nType 'help' to see available commands."
+msgstr "✅ ¡Ya estás conectado como %s!\nEscribe 'help' para ver los comandos disponibles."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "🔐 *Connect your Odoo account*\n\nClick the button below to authorize your Odoo account and unlock all CRM features!"
+msgstr "🔐 *Conecta tu cuenta de Odoo*\n\n¡Haz clic en el botón de abajo para autorizar tu cuenta de Odoo y desbloquear todas las funciones de CRM!"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Connect to Odoo"
+msgstr "Conectar a Odoo"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "⏱️ This link will expire in 10 minutes"
+msgstr "⏱️ Este enlace expirará en 10 minutos"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "🔐 Connect your Odoo account"
+msgstr "🔐 Conecta tu cuenta de Odoo"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "📚 Slack CRM Bot - Help"
+msgstr "📚 Bot de CRM de Slack - Ayuda"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "*Connection Commands:*\n• `connect` - Link your Odoo account\n• `status` - Check your connection\n• `disconnect` - Unlink your account\n• `help` - Show this help"
+msgstr "*Comandos de Conexión:*\n• `connect` - Vincula tu cuenta de Odoo\n• `status` - Verifica tu conexión\n• `disconnect` - Desvincula tu cuenta\n• `help` - Muestra esta ayuda"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "*CRM Commands (Spanish/English):*\n• `buscar/search/b/s <term>` - Search opportunities\n• `info/ver/i <OPP_ID>` - View details\n• `nota/note/n <OPP_ID> <msg>` - Add note\n• `mover/move/m <OPP_ID> <stage>` - Change stage\n\n*OPP_ID format:* OPP_123 (from search results)"
+msgstr "*Comandos CRM (Español/Inglés):*\n• `buscar/search/b/s <término>` - Buscar oportunidades\n• `info/ver/i <OPP_ID>` - Ver detalles\n• `nota/note/n <OPP_ID> <mensaje>` - Añadir nota\n• `mover/move/m <OPP_ID> <etapa>` - Cambiar etapa\n\n*Formato OPP_ID:* OPP_123 (de los resultados de búsqueda)"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "🔍 Search Opportunities"
+msgstr "🔍 Buscar Oportunidades"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "📝 Add Note to Opportunity"
+msgstr "📝 Añadir Nota a Oportunidad"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "🔄 Move Opportunity"
+msgstr "🔄 Mover Oportunidad"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "💡 *Tip:* Search works with opportunity names, partner names, and emails!"
+msgstr "💡 *Consejo:* ¡La búsqueda funciona con nombres de oportunidades, clientes y emails!"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "⚠️ *Connect your account to access CRM commands!*"
+msgstr "⚠️ *¡Conecta tu cuenta para acceder a los comandos CRM!*"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "🔐 Connect Now"
+msgstr "🔐 Conectar Ahora"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Slack CRM Bot Help"
+msgstr "Ayuda del Bot de CRM de Slack"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "❌ Not connected. Type 'connect' to link your Odoo account."
+msgstr "❌ No conectado. Escribe 'connect' para vincular tu cuenta de Odoo."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "%s days ago"
+msgstr "hace %s días"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "%s hours ago"
+msgstr "hace %s horas"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "recently"
+msgstr "recientemente"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "never"
+msgstr "nunca"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "✅ **Connected**\n\n• Odoo User: %s\n• Email: %s\n• Last Activity: %s\n• Commands Used: %s\n"
+msgstr "✅ **Conectado**\n\n• Usuario Odoo: %s\n• Email: %s\n• Última Actividad: %s\n• Comandos Usados: %s\n"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "⏳ Authorization pending. Please complete the OAuth process."
+msgstr "⏳ Autorización pendiente. Por favor completa el proceso OAuth."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "⚠️ Connection issue. Status: %s. Type 'connect' to reconnect."
+msgstr "⚠️ Problema de conexión. Estado: %s. Escribe 'connect' para reconectar."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "❌ You're not connected. Nothing to disconnect."
+msgstr "❌ No estás conectado. No hay nada que desconectar."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "👋 **Disconnected successfully**\n\nYour Odoo account has been unlinked.\nType 'connect' if you want to reconnect."
+msgstr "👋 **Desconectado exitosamente**\n\nTu cuenta de Odoo ha sido desvinculada.\nEscribe 'connect' si quieres reconectar."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "⚠️ **Your access has expired or been revoked**\n\nPlease use `disconnect` and then `connect` to re-authenticate."
+msgstr "⚠️ **Tu acceso ha expirado o ha sido revocado**\n\nPor favor usa `disconnect` y luego `connect` para re-autenticarte."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "🚫 **Permission Denied**\n\nYou don't have permission to perform this action.\nContact your Odoo administrator if you need access."
+msgstr "🚫 **Permiso Denegado**\n\nNo tienes permiso para realizar esta acción.\nContacta a tu administrador de Odoo si necesitas acceso."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "❌ Record not found or you don't have permission to view it."
+msgstr "❌ Registro no encontrado o no tienes permiso para verlo."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "🚫 You don't have read permission for this module."
+msgstr "🚫 No tienes permiso de lectura para este módulo."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "🚫 You don't have write permission for this module."
+msgstr "🚫 No tienes permiso de escritura para este módulo."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "🚫 You don't have create permission for this module."
+msgstr "🚫 No tienes permiso de creación para este módulo."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "❌ **An error occurred**\n\nThis might be a permission issue or a system error.\nPlease try again or contact your administrator."
+msgstr "❌ **Ocurrió un error**\n\nEsto puede ser un problema de permisos o un error del sistema.\nPor favor intenta de nuevo o contacta a tu administrador."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "🔍 Usage: `buscar/search/b/s <term>` or just type anything to search"
+msgstr "🔍 Uso: `buscar/search/b/s <término>` o simplemente escribe algo para buscar"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "⚠️ Your access has expired. Please reconnect using `connect`"
+msgstr "⚠️ Tu acceso ha expirado. Por favor reconecta usando `connect`"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "❌ No opportunities found for '%s'"
+msgstr "❌ No se encontraron oportunidades para '%s'"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "🔍 *Found %s opportunities for '%s':*"
+msgstr "🔍 *Se encontraron %s oportunidades para '%s':*"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "€0"
+msgstr "€0"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "📌 *%s*\n• Partner: %s\n• Stage: %s\n• Revenue: %s"
+msgstr "📌 *%s*\n• Cliente: %s\n• Etapa: %s\n• Ingresos: %s"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "📋 View Details"
+msgstr "📋 Ver Detalles"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "Found %s opportunities for '%s'"
+msgstr "Se encontraron %s oportunidades para '%s'"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "⚠️ **Permission denied**\n\nYou don't have permission to access CRM opportunities.\nPlease contact your Odoo administrator."
+msgstr "⚠️ **Permiso denegado**\n\nNo tienes permiso para acceder a oportunidades de CRM.\nPor favor contacta a tu administrador de Odoo."
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "❌ Error searching opportunities: %s"
+msgstr "❌ Error al buscar oportunidades: %s"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "ℹ️ Usage: `info/ver <OPP_ID>` or `i <OPP_ID>` (e.g., `info OPP_42`)"
+msgstr "ℹ️ Uso: `info/ver <OPP_ID>` o `i <OPP_ID>` (ej: `info OPP_42`)"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "📋 **Opportunity Details**\n\n**%s**\n• Odoo ID: `%s`\n• Stage: %s\n• Probability: %s%%\n• Expected Revenue: €%s\n• Expected Closing: %s\n"
+msgstr "📋 **Detalles de la Oportunidad**\n\n**%s**\n• ID de Odoo: `%s`\n• Etapa: %s\n• Probabilidad: %s%%\n• Ingresos Esperados: €%s\n• Cierre Esperado: %s\n"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "\n**Partner Information:**\n• Name: %s\n• Email: %s\n• Phone: %s\n"
+msgstr "\n**Información del Cliente:**\n• Nombre: %s\n• Email: %s\n• Teléfono: %s\n"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "\n**Salesperson:** %s\n"
+msgstr "\n**Comercial:** %s\n"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "**Tags:** %s\n"
+msgstr "**Etiquetas:** %s\n"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "\n💡 Use `nota/note %s <message>` to add a note"
+msgstr "\n💡 Usa `nota/note %s <mensaje>` para añadir una nota"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "❌ Error getting opportunity info: %s"
+msgstr "❌ Error al obtener información de la oportunidad: %s"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "📝 Usage: `nota/note <OPP_ID> <message>` or `n <OPP_ID> <msg>` (e.g., `nota OPP_42 Call scheduled`)"
+msgstr "📝 Uso: `nota/note <OPP_ID> <mensaje>` o `n <OPP_ID> <msg>` (ej: `nota OPP_42 Llamada programada`)"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "❌ Error adding note to opportunity %s"
+msgstr "❌ Error al añadir nota a la oportunidad %s"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "✅ **Note added successfully!**\n\nOpportunity: %s\nNote: %s\nAdded to: Chatter & Internal Notes"
+msgstr "✅ **¡Nota añadida exitosamente!**\n\nOportunidad: %s\nNota: %s\nAñadida a: Chatter y Notas Internas"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "❌ Error adding note: %s"
+msgstr "❌ Error al añadir nota: %s"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "📦 Usage: `mover/move <OPP_ID> <stage>` or `m <OPP_ID> <stage>` (e.g., `mover OPP_42 Won`)"
+msgstr "📦 Uso: `mover/move <OPP_ID> <etapa>` o `m <OPP_ID> <etapa>` (ej: `mover OPP_42 Ganada`)"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "• %s"
+msgstr "• %s"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "❌ Stage '%s' not found.\n\nAvailable stages:\n%s"
+msgstr "❌ Etapa '%s' no encontrada.\n\nEtapas disponibles:\n%s"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "✅ **Stage changed successfully!**\n\nOpportunity: %s\nFrom: %s\nTo: %s\n"
+msgstr "✅ **¡Etapa cambiada exitosamente!**\n\nOportunidad: %s\nDe: %s\nA: %s\n"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "❌ Error changing stage: %s"
+msgstr "❌ Error al cambiar etapa: %s"
+
+#. module: slack_integration
+#: code:addons/slack_integration/controllers/slack_bot.py:0
+#, python-format
+msgid "📝 Note from Slack:\n%s"
+msgstr "📝 Nota desde Slack:\n%s"

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slack Integration for Odoo CRM</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background: #fff;
+            font-size: 16px;
+        }
+
+        .hero {
+            background: #4a154b;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #4a154b;
+            margin: 40px 0 20px 0;
+            font-weight: 700;
+            border-bottom: 2px solid #4a154b;
+            padding-bottom: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        ul {
+            margin: 20px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        strong {
+            color: #4a154b;
+        }
+
+        .command {
+            margin: 30px 0;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .command-name {
+            font-family: 'Courier New', 'Consolas', monospace;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #4a154b;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+        }
+
+        .command-desc {
+            margin: 12px 0;
+            line-height: 1.6;
+        }
+
+        .command-example {
+            font-family: 'Courier New', 'Consolas', monospace;
+            background: #f5f5f5;
+            padding: 10px 15px;
+            border-left: 3px solid #4a154b;
+            margin-top: 10px;
+        }
+
+        .command-example-label {
+            font-weight: 600;
+            color: #666;
+            margin-right: 8px;
+        }
+
+        .command-example-code {
+            color: #4a154b;
+        }
+
+        .command-section {
+            margin: 40px 0 20px 0 !important;
+            padding: 12px 20px !important;
+            background: linear-gradient(135deg, #4a154b 0%, #36104a 100%) !important;
+            border-radius: 6px !important;
+            box-shadow: 0 3px 8px rgba(74, 21, 75, 0.2) !important;
+        }
+
+        .command-section h3 {
+            font-size: 1.3rem !important;
+            color: #fff !important;
+            font-weight: 600 !important;
+            margin: 0 !important;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2) !important;
+        }
+
+        .command-divider {
+            height: 2px !important;
+            background: linear-gradient(to right, #4a154b 0%, #e0e0e0 50%, transparent 100%) !important;
+            margin: 50px 0 40px 0 !important;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #999;
+            border-top: 1px solid #ddd;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #4a154b;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Slack Integration for Odoo CRM</h1>
+        <p>Manage your CRM opportunities directly from Slack</p>
+    </div>
+
+    <div style="text-align: center; margin: 20px auto; padding: 0; max-width: 900px;">
+        <img src="header.png" alt="Slack Integration Header" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.1);">
+    </div>
+
+    <div class="container" style="padding-top: 0;">
+        <h2>Overview</h2>
+        <p style="font-size: 1.05em; line-height: 1.7; color: #555;">
+            This module allows your team to interact with Odoo CRM directly from Slack using natural
+            Direct Message commands. Each user securely connects their own Odoo account via <strong style="color: #4a154b;">OAuth 2.0</strong>,
+            ensuring all operations respect individual user permissions.
+        </p>
+
+        <h2>Key Features</h2>
+        <ul style="list-style: none; padding-left: 0;">
+            <li style="padding: 8px 0; border-bottom: 1px solid #f0f0f0;">
+                <span style="color: #4a154b; font-size: 1.2em; margin-right: 8px;">🔐</span>
+                <strong>Secure OAuth Authentication</strong> — Each user connects their own account
+            </li>
+            <li style="padding: 8px 0; border-bottom: 1px solid #f0f0f0;">
+                <span style="color: #4a154b; font-size: 1.2em; margin-right: 8px;">💬</span>
+                <strong>Direct Message Commands</strong> — No slash commands needed, just type naturally
+            </li>
+            <li style="padding: 8px 0; border-bottom: 1px solid #f0f0f0;">
+                <span style="color: #4a154b; font-size: 1.2em; margin-right: 8px;">⚡</span>
+                <strong>Real-time CRM Access</strong> — Search, view, and update opportunities instantly
+            </li>
+            <li style="padding: 8px 0; border-bottom: 1px solid #f0f0f0;">
+                <span style="color: #4a154b; font-size: 1.2em; margin-right: 8px;">🛡️</span>
+                <strong>Enterprise Security</strong> — HMAC-SHA256 verification on all requests
+            </li>
+            <li style="padding: 8px 0; border-bottom: 1px solid #f0f0f0;">
+                <span style="color: #4a154b; font-size: 1.2em; margin-right: 8px;">👤</span>
+                <strong>User Permissions</strong> — Respects your Odoo access rights
+            </li>
+            <li style="padding: 8px 0; border-bottom: 1px solid #f0f0f0;">
+                <span style="color: #4a154b; font-size: 1.2em; margin-right: 8px;">📋</span>
+                <strong>Audit Logging</strong> — Complete security audit trail
+            </li>
+            <li style="padding: 8px 0; border-bottom: 1px solid #f0f0f0;">
+                <span style="color: #4a154b; font-size: 1.2em; margin-right: 8px;">🚦</span>
+                <strong>Rate Limiting</strong> — Configurable per-IP protection
+            </li>
+            <li style="padding: 8px 0;">
+                <span style="color: #4a154b; font-size: 1.2em; margin-right: 8px;">🌐</span>
+                <strong>Multilingual</strong> — Available in English and Spanish
+            </li>
+        </ul>
+
+        <h2>Bot Commands</h2>
+        <p>Send these commands directly to the bot via Direct Message:</p>
+
+        <h3 style="color: #4a154b; margin-top: 35px; margin-bottom: 15px;">🔗 Getting Started</h3>
+
+        <p style="margin: 8px 0 3px 0;"><strong style="font-family: monospace; color: #4a154b; font-size: 1.05em;">connect</strong></p>
+        <p style="margin: 0 0 15px 20px;">Link your Odoo account via secure OAuth authentication.</p>
+
+        <p style="margin: 8px 0 3px 0;"><strong style="font-family: monospace; color: #4a154b; font-size: 1.05em;">status</strong></p>
+        <p style="margin: 0 0 15px 20px;">Check your connection status with Odoo and see account details.</p>
+
+        <p style="margin: 8px 0 3px 0;"><strong style="font-family: monospace; color: #4a154b; font-size: 1.05em;">help</strong></p>
+        <p style="margin: 0 0 20px 20px;">Display a list of all available commands with brief descriptions.</p>
+
+        <h3 style="color: #4a154b; margin-top: 35px; margin-bottom: 15px;">💼 Managing Opportunities</h3>
+
+        <p style="margin: 8px 0 3px 0;"><strong style="font-family: monospace; color: #4a154b; font-size: 1.05em;">search &lt;keyword&gt;</strong> <span style="color: #888; font-size: 0.9em;">(also: buscar, b, s)</span></p>
+        <p style="margin: 0 0 5px 20px;">Find CRM opportunities by name or keyword.</p>
+        <p style="margin: 0 0 15px 20px; background: #f5f5f5; padding: 8px 12px; border-left: 3px solid #4a154b; font-family: monospace; font-size: 0.9em;"><em>Example:</em> search Microsoft <span style="color: #888;">or</span> s Microsoft</p>
+
+        <p style="margin: 8px 0 3px 0;"><strong style="font-family: monospace; color: #4a154b; font-size: 1.05em;">view &lt;OPP_ID&gt;</strong></p>
+        <p style="margin: 0 0 5px 20px;">Get detailed information about a specific opportunity.</p>
+        <p style="margin: 0 0 15px 20px; background: #f5f5f5; padding: 8px 12px; border-left: 3px solid #4a154b; font-family: monospace; font-size: 0.9em;"><em>Example:</em> view OPP_42</p>
+
+        <p style="margin: 8px 0 3px 0;"><strong style="font-family: monospace; color: #4a154b; font-size: 1.05em;">note &lt;OPP_ID&gt; &lt;message&gt;</strong></p>
+        <p style="margin: 0 0 5px 20px;">Add a note to an opportunity.</p>
+        <p style="margin: 0 0 15px 20px; background: #f5f5f5; padding: 8px 12px; border-left: 3px solid #4a154b; font-family: monospace; font-size: 0.9em;"><em>Example:</em> note OPP_42 Client called today to discuss pricing</p>
+
+        <p style="margin: 8px 0 3px 0;"><strong style="font-family: monospace; color: #4a154b; font-size: 1.05em;">move &lt;OPP_ID&gt; &lt;stage&gt;</strong></p>
+        <p style="margin: 0 0 5px 20px;">Move an opportunity to a different pipeline stage.</p>
+        <p style="margin: 0 0 15px 20px; background: #f5f5f5; padding: 8px 12px; border-left: 3px solid #4a154b; font-family: monospace; font-size: 0.9em;"><em>Example:</em> move OPP_42 Won</p>
+
+        <div style="text-align: center; margin: 40px 0;">
+            <img src="screenshot_slack.png" alt="Slack Bot Interaction Example" style="max-width: 100%; height: auto; border: 1px solid #e0e0e0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <p style="margin: 10px 0 0 0; color: #888; font-size: 0.9em; font-style: italic;">Example of bot interaction in Slack Direct Messages</p>
+        </div>
+
+        <h2>Security</h2>
+        <p style="color: #555; margin-bottom: 20px;">Built with enterprise-grade security from the ground up:</p>
+        <ul style="list-style: none; padding-left: 0;">
+            <li style="padding: 6px 0 6px 25px; position: relative;">
+                <span style="position: absolute; left: 0; color: #4a154b;">✓</span>
+                HMAC-SHA256 signature verification on all requests
+            </li>
+            <li style="padding: 6px 0 6px 25px; position: relative;">
+                <span style="position: absolute; left: 0; color: #4a154b;">✓</span>
+                Timestamp verification to prevent replay attacks (5-minute window)
+            </li>
+            <li style="padding: 6px 0 6px 25px; position: relative;">
+                <span style="position: absolute; left: 0; color: #4a154b;">✓</span>
+                Multiple layers of token validation
+            </li>
+            <li style="padding: 6px 0 6px 25px; position: relative;">
+                <span style="position: absolute; left: 0; color: #4a154b;">✓</span>
+                Configurable rate limiting per IP address
+            </li>
+            <li style="padding: 6px 0 6px 25px; position: relative;">
+                <span style="position: absolute; left: 0; color: #4a154b;">✓</span>
+                Complete security audit logging with analytics
+            </li>
+            <li style="padding: 6px 0 6px 25px; position: relative;">
+                <span style="position: absolute; left: 0; color: #4a154b;">✓</span>
+                Request validation and sanitization
+            </li>
+            <li style="padding: 6px 0 6px 25px; position: relative;">
+                <span style="position: absolute; left: 0; color: #4a154b;">✓</span>
+                User-level permission enforcement (no sudo)
+            </li>
+            <li style="padding: 6px 0 6px 25px; position: relative;">
+                <span style="position: absolute; left: 0; color: #4a154b;">✓</span>
+                Automatic cleanup of old security logs
+            </li>
+        </ul>
+
+        <h2>Quick Setup</h2>
+        <ol style="list-style: none; counter-reset: step-counter; padding-left: 0;">
+            <li style="counter-increment: step-counter; padding: 10px 0 10px 45px; position: relative; border-bottom: 1px solid #f0f0f0;">
+                <span style="position: absolute; left: 0; top: 8px; background: #4a154b; color: white; width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9em;">1</span>
+                Install this module in your Odoo instance
+            </li>
+            <li style="counter-increment: step-counter; padding: 10px 0 10px 45px; position: relative; border-bottom: 1px solid #f0f0f0;">
+                <span style="position: absolute; left: 0; top: 8px; background: #4a154b; color: white; width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9em;">2</span>
+                Create a Slack App with bot and OAuth capabilities
+            </li>
+            <li style="counter-increment: step-counter; padding: 10px 0 10px 45px; position: relative; border-bottom: 1px solid #f0f0f0;">
+                <span style="position: absolute; left: 0; top: 8px; background: #4a154b; color: white; width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9em;">3</span>
+                Configure tokens in Odoo: <strong style="color: #4a154b;">Settings → Slack Integration</strong>
+            </li>
+            <li style="counter-increment: step-counter; padding: 10px 0 10px 45px; position: relative; border-bottom: 1px solid #f0f0f0;">
+                <span style="position: absolute; left: 0; top: 8px; background: #4a154b; color: white; width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9em;">4</span>
+                Configure webhook URLs in your Slack app
+            </li>
+            <li style="counter-increment: step-counter; padding: 10px 0 10px 45px; position: relative;">
+                <span style="position: absolute; left: 0; top: 8px; background: #4a154b; color: white; width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9em;">5</span>
+                Users can now connect by sending a DM to the bot
+            </li>
+        </ol>
+
+        <p style="background: #f0f7ff; border-left: 4px solid #4a154b; padding: 12px 15px; margin-top: 20px;"><strong style="color: #4a154b;">💡 Note:</strong> Complete step-by-step instructions are available in the Settings panel after installation.</p>
+
+        <h2>Support</h2>
+        <div style="background: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin: 20px 0;">
+            <p style="margin: 0 0 10px 0; font-size: 1.05em;">
+                This module is developed and maintained by <strong style="color: #4a154b;">Stoner Studios</strong>.
+            </p>
+            <p style="margin: 0;">
+                📧 For support, contact us at
+                <a href="mailto:support@stonerstudios.com" style="color: #4a154b; font-weight: 600; text-decoration: none;">support@stonerstudios.com</a>
+            </p>
+        </div>
+
+        <div style="text-align: center; padding: 25px 20px; color: #999; border-top: 1px solid #e0e0e0; margin-top: 40px; font-size: 0.9rem;">
+            <p style="margin: 0 0 5px 0;"><strong style="color: #4a154b;">Stoner Studios</strong> — Premium Odoo Solutions</p>
+            <p style="margin: 0; font-size: 0.85em;">Licensed under LGPL-3</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,289 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * user_impersonation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-27 18:00:00\n"
+"PO-Revision-Date: 2025-10-27 18:00:00\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: user_impersonation
+#: model:ir.model.fields,field_description:user_impersonation.field_user_impersonate_log__action
+msgid "Action"
+msgstr "Acción"
+
+#. module: user_impersonation
+#: model:ir.model.fields,field_description:user_impersonation.field_user_impersonate_log__admin_user_id
+msgid "Administrator"
+msgstr "Administrador"
+
+#. module: user_impersonation
+#: model:ir.model,name:user_impersonation.model_user_impersonate_log
+msgid "User Impersonate Log"
+msgstr "Registro de Impersonación de Usuarios"
+
+#. module: user_impersonation
+#: model:ir.model.fields,field_description:user_impersonation.field_user_impersonate_log__target_user_id
+msgid "Impersonated User"
+msgstr "Usuario Impersonado"
+
+#. module: user_impersonation
+#: model:ir.model.fields,field_description:user_impersonation.field_user_impersonate_log__duration
+msgid "Duration (minutes)"
+msgstr "Duración (minutos)"
+
+#. module: user_impersonation
+#: model:ir.model.fields,field_description:user_impersonation.field_user_impersonate_log__ip_address
+msgid "IP Address"
+msgstr "Dirección IP"
+
+#. module: user_impersonation
+#: model:ir.model.fields,help:user_impersonation.field_user_impersonate_log__ip_address
+msgid "IP address of the administrator performing the impersonation"
+msgstr "Dirección IP del administrador que realiza la impersonación"
+
+#. module: user_impersonation
+#: model:ir.model.fields,field_description:user_impersonation.field_user_impersonate_log__create_date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: user_impersonation
+#: model:ir.ui.view,arch_db:user_impersonation.view_users_form_impersonate
+msgid "🔄 Impersonate User"
+msgstr "🔄 Impersonar Usuario"
+
+#. module: user_impersonation
+#: model:ir.ui.view,arch_db:user_impersonation.view_users_form_impersonate
+msgid "Are you sure you want to impersonate this user? All your actions will be logged."
+msgstr "¿Estás seguro de que quieres impersonar a este usuario? Todas tus acciones serán registradas."
+
+#. module: user_impersonation
+#: code:addons/user_impersonation/models/res_users.py:0
+#, python-format
+msgid "No active session available for impersonation"
+msgstr "No hay sesión activa disponible para impersonación"
+
+#. module: user_impersonation
+#: code:addons/user_impersonation/models/res_users.py:0
+#, python-format
+msgid "Only system administrators can impersonate users"
+msgstr "Solo los administradores del sistema pueden impersonar usuarios"
+
+#. module: user_impersonation
+#: code:addons/user_impersonation/models/res_users.py:0
+#, python-format
+msgid "You cannot impersonate yourself"
+msgstr "No puedes impersonarte a ti mismo"
+
+#. module: user_impersonation
+#: code:addons/user_impersonation/models/res_users.py:0
+#, python-format
+msgid "For security reasons, you cannot impersonate another administrator"
+msgstr "Por seguridad, no se puede impersonar a otro administrador"
+
+#. module: user_impersonation
+#: code:addons/user_impersonation/models/res_users.py:0
+#, python-format
+msgid "Too many impersonation attempts. For security, please wait %(seconds)s seconds before trying again."
+msgstr "Demasiados intentos de impersonación. Por seguridad, espera %(seconds)s segundos antes de intentar nuevamente."
+
+#. module: user_impersonation
+#: code:addons/user_impersonation/models/res_users.py:0
+#, python-format
+msgid "Your account was accessed by administrator %(admin)s for technical support purposes on %(date)s. IP: %(ip)s"
+msgstr "Tu cuenta fue accedida por el administrador %(admin)s para propósitos de soporte técnico el %(date)s. IP: %(ip)s"
+
+#. module: user_impersonation
+#: code:addons/user_impersonation/models/res_users.py:0
+#, python-format
+msgid "Account Access Notification"
+msgstr "Notificación de Acceso a tu Cuenta"
+
+#. module: user_impersonation
+#: code:addons/user_impersonation/models/res_users.py:0
+#, python-format
+msgid "Impersonation session expired after %(minutes)s minutes"
+msgstr "Sesión de impersonación expiró después de %(minutes)s minutos"
+
+#. module: user_impersonation
+#: code:addons/user_impersonation/models/res_users.py:0
+#, python-format
+msgid "No active session available"
+msgstr "No hay sesión activa disponible"
+
+#. module: user_impersonation
+#: model:ir.ui.menu,name:user_impersonation.menu_action_stop_impersonate
+msgid "⛔ Stop Impersonation"
+msgstr "⛔ Detener Impersonación"
+
+#. module: user_impersonation
+#: model:ir.ui.menu,name:user_impersonation.menu_user_impersonate_log
+#: model:ir.actions.act_window,name:user_impersonation.action_user_impersonate_log
+msgid "Impersonation Logs"
+msgstr "Registros de Impersonación"
+
+#. module: user_impersonation
+#: model_terms:ir.ui.view,arch_db:user_impersonation.impersonate_warning_xml
+msgid "Impersonating"
+msgstr "Impersonando"
+
+#. module: user_impersonation
+#: model_terms:ir.ui.view,arch_db:user_impersonation.impersonate_warning_xml
+msgid "Impersonation Mode"
+msgstr "Modo Impersonación"
+
+#. module: user_impersonation
+#: model_terms:ir.ui.view,arch_db:user_impersonation.impersonate_warning_xml
+msgid "Original user:"
+msgstr "Usuario original:"
+
+#. module: user_impersonation
+#: model_terms:ir.ui.view,arch_db:user_impersonation.impersonate_warning_xml
+msgid "Impersonating:"
+msgstr "Impersonando a:"
+
+#. module: user_impersonation
+#: model_terms:ir.ui.view,arch_db:user_impersonation.impersonate_warning_xml
+msgid "All actions are being logged"
+msgstr "Todas las acciones están siendo registradas"
+
+#. module: user_impersonation
+#: model_terms:ir.ui.view,arch_db:user_impersonation.impersonate_warning_xml
+msgid "Stop Impersonation"
+msgstr "Detener Impersonación"
+
+#. module: user_impersonation
+#: model_terms:ir.ui.view,arch_db:user_impersonation.impersonate_warning_xml
+msgid "IMPERSONATION MODE ACTIVE"
+msgstr "MODO IMPERSONACIÓN ACTIVO"
+
+#. module: user_impersonation
+#: model_terms:ir.ui.view,arch_db:user_impersonation.impersonate_warning_xml
+msgid "You are acting as:"
+msgstr "Estás actuando como:"
+
+#. module: user_impersonation
+#: model_terms:ir.ui.view,arch_db:user_impersonation.impersonate_warning_xml
+msgid "Original user:"
+msgstr "Usuario original:"
+
+#. module: user_impersonation
+#: model_terms:ir.ui.view,arch_db:user_impersonation.impersonate_warning_xml
+msgid "Hide warning"
+msgstr "Ocultar aviso"
+
+#. module: user_impersonation
+#: model_terms:ir.ui.view,arch_db:user_impersonation.impersonate_warning_xml
+msgid "Stop"
+msgstr "Detener"
+
+#. module: user_impersonation
+#: code:addons/user_impersonation/static/src/js/impersonate_warning.js:0
+msgid "Are you sure you want to stop impersonating this user?"
+msgstr "¿Estás seguro de que quieres dejar de impersonar a este usuario?"
+
+#. module: user_impersonation
+#: code:addons/user_impersonation/static/src/js/impersonate_warning.js:0
+msgid "Stop Impersonation"
+msgstr "Detener Impersonación"
+
+#. module: user_impersonation
+#: code:addons/user_impersonation/static/src/js/impersonate_warning.js:0
+msgid "Impersonating %s"
+msgstr "Impersonando a %s"
+
+#. module: user_impersonation
+#: code:addons/user_impersonation/static/src/js/impersonate_warning.js:0
+msgid "Admin"
+msgstr "Administrador"
+
+#. module: user_impersonation
+#: code:addons/user_impersonation/static/src/js/impersonate_warning.js:0
+msgid "Unknown"
+msgstr "Desconocido"
+
+#. module: user_impersonation
+#: model_terms:ir.ui.view,arch_db:user_impersonation.view_user_impersonate_log_search
+msgid "Today"
+msgstr "Hoy"
+
+#. module: user_impersonation
+#: model_terms:ir.ui.view,arch_db:user_impersonation.view_user_impersonate_log_search
+msgid "This Week"
+msgstr "Esta semana"
+
+#. module: user_impersonation
+#: model_terms:ir.ui.view,arch_db:user_impersonation.view_user_impersonate_log_search
+msgid "This Month"
+msgstr "Este mes"
+
+#. module: user_impersonation
+#: model_terms:ir.ui.view,arch_db:user_impersonation.view_user_impersonate_log_search
+msgid "Start Sessions"
+msgstr "Sesiones iniciadas"
+
+#. module: user_impersonation
+#: model_terms:ir.ui.view,arch_db:user_impersonation.view_user_impersonate_log_search
+msgid "Stop Sessions"
+msgstr "Sesiones finalizadas"
+
+#. module: user_impersonation
+#: model_terms:ir.ui.view,arch_db:user_impersonation.view_user_impersonate_log_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: user_impersonation
+#: model_terms:ir.ui.view,arch_db:user_impersonation.view_user_impersonate_log_search
+msgid "Date"
+msgstr "Fecha"
+
+#. module: user_impersonation
+#: model:ir.ui.menu,name:user_impersonation.menu_user_impersonation_root
+msgid "User Impersonation"
+msgstr "Impersonación de Usuarios"
+
+#. module: user_impersonation
+#: model:ir.ui.menu,name:user_impersonation.menu_user_impersonate_log
+#: model:ir.actions.act_window,name:user_impersonation.action_user_impersonate_log
+msgid "Impersonation Logs"
+msgstr "Registros de Impersonación"
+
+#. module: user_impersonation
+#: model:ir.model,name:user_impersonation.model_impersonate_wizard
+msgid "Impersonate User Wizard"
+msgstr "Asistente para Impersonar Usuario"
+
+#. module: user_impersonation
+#: model:ir.model.fields,field_description:user_impersonation.field_impersonate_wizard__reason
+#: model:ir.model.fields,field_description:user_impersonation.field_user_impersonate_log__reason
+msgid "Reason"
+msgstr "Motivo"
+
+#. module: user_impersonation
+#: model:ir.model.fields,help:user_impersonation.field_impersonate_wizard__reason
+msgid "Please provide a reason for this impersonation (for audit purposes)"
+msgstr "Por favor proporciona un motivo para esta impersonación (para propósitos de auditoría)"
+
+#. module: user_impersonation
+#: model:ir.model.fields,help:user_impersonation.field_user_impersonate_log__reason
+msgid "Reason for the impersonation (for audit purposes)"
+msgstr "Motivo de la impersonación (para propósitos de auditoría)"
+
+#. module: user_impersonation
+#: model:ir.model.fields,field_description:user_impersonation.field_impersonate_wizard__user_id
+msgid "User to Impersonate"
+msgstr "Usuario a Impersonar"
+
+#. module: user_impersonation
+#: model_terms:ir.ui.view,arch_db:user_impersonation.view_impersonate_wizard_form
+msgid "Reason for Impersonation"
+msgstr "Motivo de Impersonación"

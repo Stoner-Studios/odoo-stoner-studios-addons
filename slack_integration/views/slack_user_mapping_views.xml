@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- List View (Odoo 18 uses 'list' not 'tree') -->
+    <record id="view_slack_user_mapping_list" model="ir.ui.view">
+        <field name="name">slack.user.mapping.list</field>
+        <field name="model">slack.user.mapping</field>
+        <field name="arch" type="xml">
+            <list string="Slack User Connections"
+                  create="true"
+                  edit="true"
+                  decoration-success="state == 'active'"
+                  decoration-warning="state == 'expired'"
+                  decoration-danger="state == 'revoked'"
+                  decoration-info="state == 'pending'">
+                <field name="slack_display_name" string="Slack User"/>
+                <field name="user_id" string="Odoo User" widget="many2one_avatar_user"/>
+                <field name="state" widget="badge"/>
+                <field name="last_used" string="Last Activity" optional="show"/>
+                <field name="connection_date" string="Connected" optional="hide"/>
+                <field name="command_count" string="Commands" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View with notebook (Odoo 18 style) -->
+    <record id="view_slack_user_mapping_form" model="ir.ui.view">
+        <field name="name">slack.user.mapping.form</field>
+        <field name="model">slack.user.mapping</field>
+        <field name="arch" type="xml">
+            <form string="Slack User Connection">
+                <header>
+                    <button name="action_activate_connection"
+                            string="Activate"
+                            type="object"
+                            class="btn-primary"
+                            invisible="state != 'pending'"
+                            groups="base.group_system"/>
+                    <button name="revoke_connection"
+                            string="Revoke Access"
+                            type="object"
+                            class="btn-danger"
+                            invisible="state != 'active'"
+                            confirm="Are you sure you want to revoke this user's access?"
+                            groups="base.group_system"/>
+                    <field name="state"
+                           widget="statusbar"
+                           statusbar_visible="pending,active,expired,revoked"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="display_name" readonly="1"/></h1>
+                        <field name="state_message" readonly="1" class="text-muted"/>
+                    </div>
+
+                    <group>
+                        <group string="Slack Information">
+                            <field name="slack_user_id" readonly="state != 'pending'"/>
+                            <field name="slack_team_id" readonly="state != 'pending'"/>
+                            <field name="slack_display_name"/>
+                            <field name="slack_real_name"/>
+                            <field name="slack_email"/>
+                            <field name="slack_channel_id" readonly="1"/>
+                        </group>
+                        <group string="Odoo Information">
+                            <field name="user_id"
+                                   readonly="state != 'pending'"
+                                   widget="many2one_avatar_user"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                            <field name="connection_date" readonly="1"/>
+                            <field name="last_used" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Usage Statistics" name="stats">
+                            <group>
+                                <group>
+                                    <field name="command_count" readonly="1"/>
+                                    <field name="last_command" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="last_used" readonly="1" string="Last Activity Time"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Security" name="security" groups="base.group_system">
+                            <group>
+                                <group>
+                                    <field name="api_key"
+                                           password="True"
+                                           readonly="1"
+                                           invisible="not api_key"/>
+                                    <field name="api_key_scope"
+                                           readonly="1"
+                                           invisible="not api_key"/>
+                                </group>
+                                <group>
+                                    <field name="oauth_state_token"
+                                           readonly="1"
+                                           invisible="not oauth_state_token"/>
+                                    <field name="oauth_state_expires"
+                                           readonly="1"
+                                           invisible="not oauth_state_expires"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_slack_user_mapping_search" model="ir.ui.view">
+        <field name="name">slack.user.mapping.search</field>
+        <field name="model">slack.user.mapping</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="slack_display_name"/>
+                <field name="slack_real_name"/>
+                <field name="slack_email"/>
+                <field name="user_id"/>
+
+                <filter string="Active" name="active" domain="[('state', '=', 'active')]"/>
+                <filter string="Pending" name="pending" domain="[('state', '=', 'pending')]"/>
+                <filter string="Expired" name="expired" domain="[('state', '=', 'expired')]"/>
+                <filter string="Revoked" name="revoked" domain="[('state', '=', 'revoked')]"/>
+
+                <separator/>
+
+                <filter string="Used Today" name="used_today"
+                        domain="[('last_used', '>=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter string="Never Used" name="never_used"
+                        domain="[('last_used', '=', False)]"/>
+
+                <group expand="0" string="Group By">
+                    <filter string="State" name="group_state" context="{'group_by': 'state'}"/>
+                    <filter string="Odoo User" name="group_user" context="{'group_by': 'user_id'}"/>
+                    <filter string="Connection Date" name="group_date" context="{'group_by': 'connection_date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_slack_user_mapping" model="ir.actions.act_window">
+        <field name="name">Slack User Connections</field>
+        <field name="res_model">slack.user.mapping</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_slack_user_mapping_search"/>
+        <field name="context">{'search_default_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Slack user connections yet
+            </p>
+            <p>
+                Slack users can connect their Odoo accounts by messaging the bot
+                and using the 'connect' command.
+            </p>
+            <div class="mt-3">
+                <p class="text-muted">
+                    <i class="fa fa-link"/> Quick access URL: <code>/slack/user-connections</code>
+                </p>
+            </div>
+        </field>
+    </record>
+
+    <!-- Menu in Technical -->
+    <menuitem id="menu_slack_integration_root"
+              name="Slack Integration"
+              parent="base.menu_custom"
+              sequence="50"
+              groups="base.group_system"/>
+
+    <menuitem id="menu_slack_user_mapping"
+              name="User Connections"
+              parent="menu_slack_integration_root"
+              action="action_slack_user_mapping"
+              sequence="10"
+              groups="base.group_system"/>
+</odoo>

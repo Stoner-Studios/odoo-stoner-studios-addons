@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- OAuth Success Page -->
+    <template id="oauth_success" name="Slack OAuth Success">
+        <t t-call="portal.portal_layout">
+            <t t-set="title">Slack Connection Successful</t>
+            <t t-set="no_breadcrumbs" t-value="True"/>
+
+            <!-- Custom CSS for modern design -->
+            <style>
+                .slack-oauth-container {
+                    min-height: 80vh;
+                    display: flex;
+                    align-items: center;
+                    background: #f8f9fa;
+                    margin: -48px -15px;
+                    padding: 48px 15px;
+                }
+                .oauth-card {
+                    background: white;
+                    border-radius: 20px;
+                    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+                    padding: 3rem;
+                    max-width: 500px;
+                    margin: 0 auto;
+                    animation: slideIn 0.5s ease-out;
+                }
+                @keyframes slideIn {
+                    from {
+                        opacity: 0;
+                        transform: translateY(-30px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+                .success-icon {
+                    width: 100px;
+                    height: 100px;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto 2rem;
+                    animation: pulse 2s infinite;
+                }
+                @keyframes pulse {
+                    0% {
+                        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+                    }
+                    70% {
+                        box-shadow: 0 0 0 20px rgba(102, 126, 234, 0);
+                    }
+                    100% {
+                        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
+                    }
+                }
+                .slack-logo {
+                    width: 40px;
+                    height: 40px;
+                    margin-right: 10px;
+                }
+                .user-info {
+                    background: #f8f9fa;
+                    border-radius: 10px;
+                    padding: 1.5rem;
+                    margin: 2rem 0;
+                }
+                .user-info-row {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0.5rem 0;
+                }
+                .user-info-label {
+                    color: #6c757d;
+                    font-weight: 500;
+                }
+                .user-info-value {
+                    font-weight: 600;
+                    color: #2c3e50;
+                }
+                .btn-gradient {
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                    border: none;
+                    border-radius: 10px;
+                    padding: 12px 30px;
+                    font-weight: 600;
+                    transition: all 0.3s ease;
+                    text-decoration: none;
+                    display: inline-block;
+                }
+                .btn-gradient:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+                    color: white;
+                    text-decoration: none;
+                }
+                .btn-outline {
+                    background: white;
+                    color: #667eea;
+                    border: 2px solid #667eea;
+                    border-radius: 10px;
+                    padding: 12px 30px;
+                    font-weight: 600;
+                    transition: all 0.3s ease;
+                    text-decoration: none;
+                    display: inline-block;
+                }
+                .btn-outline:hover {
+                    background: #667eea;
+                    color: white;
+                    text-decoration: none;
+                }
+            </style>
+
+            <div class="slack-oauth-container">
+                <div class="oauth-card">
+                    <div class="success-icon">
+                        <i class="fa fa-check text-white" style="font-size: 48px;"/>
+                    </div>
+
+                    <h2 class="text-center mb-3" style="color: #2c3e50;">
+                        <svg style="width: 40px; height: 40px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 124 124">
+                            <path fill="#e01e5a" d="M26.4 78.7c0 7.3-5.9 13.2-13.2 13.2C5.9 91.9 0 86 0 78.7s5.9-13.2 13.2-13.2h13.2v13.2zm6.6 0c0-7.3 5.9-13.2 13.2-13.2s13.2 5.9 13.2 13.2v33c0 7.3-5.9 13.2-13.2 13.2s-13.2-5.9-13.2-13.2v-33z"/>
+                            <path fill="#36c5f0" d="M46.2 26.4c-7.3 0-13.2-5.9-13.2-13.2S38.9 0 46.2 0s13.2 5.9 13.2 13.2v13.2H46.2zm0 6.6c7.3 0 13.2 5.9 13.2 13.2s-5.9 13.2-13.2 13.2H13.2C5.9 59.4 0 53.5 0 46.2s5.9-13.2 13.2-13.2h33z"/>
+                            <path fill="#2eb67d" d="M97.8 46.2c0-7.3 5.9-13.2 13.2-13.2s13.2 5.9 13.2 13.2-5.9 13.2-13.2 13.2H97.8V46.2zm-6.6 0c0 7.3-5.9 13.2-13.2 13.2s-13.2-5.9-13.2-13.2V13.2C64.8 5.9 70.7 0 78 0s13.2 5.9 13.2 13.2v33z"/>
+                            <path fill="#ecb22e" d="M78 97.8c7.3 0 13.2 5.9 13.2 13.2s-5.9 13.2-13.2 13.2-13.2-5.9-13.2-13.2V97.8H78zm0-6.6c-7.3 0-13.2-5.9-13.2-13.2s5.9-13.2 13.2-13.2h33c7.3 0 13.2 5.9 13.2 13.2s-5.9 13.2-13.2 13.2H78z"/>
+                        </svg>
+                        Connection Successful!
+                    </h2>
+
+                    <p class="text-center text-muted mb-4">
+                        Your Slack workspace is now connected to Odoo
+                    </p>
+
+                    <div class="user-info">
+                        <div class="user-info-row">
+                            <span class="user-info-label">
+                                <i class="fa fa-user-circle-o mr-2"/> Odoo User
+                            </span>
+                            <span class="user-info-value">
+                                <t t-esc="user_name"/>
+                            </span>
+                        </div>
+                        <div class="user-info-row">
+                            <span class="user-info-label">
+                                <i class="fa fa-slack mr-2"/> Slack User
+                            </span>
+                            <span class="user-info-value">
+                                <t t-esc="slack_name"/>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info" style="border-radius: 10px; border: none; background: #e3f2fd; color: #1976d2;">
+                        <i class="fa fa-info-circle mr-2"/>
+                        <strong>Next Steps:</strong><br/>
+                        Return to Slack and type <code>help</code> to see all available commands.
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <a href="/web" class="btn-gradient mr-2">
+                            <i class="fa fa-rocket mr-2"/> Open Odoo
+                        </a>
+                        <a href="#" onclick="window.close(); return false;" class="btn-outline">
+                            <i class="fa fa-times mr-2"/> Close Window
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- OAuth Error Page -->
+    <template id="oauth_error" name="Slack OAuth Error">
+        <t t-call="portal.portal_layout">
+            <t t-set="title">Connection Error</t>
+            <t t-set="no_breadcrumbs" t-value="True"/>
+
+            <!-- Custom CSS for error page -->
+            <style>
+                .slack-oauth-container {
+                    min-height: 80vh;
+                    display: flex;
+                    align-items: center;
+                    background: #f8f9fa;
+                    margin: -48px -15px;
+                    padding: 48px 15px;
+                }
+                .oauth-card {
+                    background: white;
+                    border-radius: 20px;
+                    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+                    padding: 3rem;
+                    max-width: 500px;
+                    margin: 0 auto;
+                    animation: shake 0.5s ease-out;
+                }
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+                    20%, 40%, 60%, 80% { transform: translateX(5px); }
+                }
+                .error-icon {
+                    width: 100px;
+                    height: 100px;
+                    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto 2rem;
+                }
+                .btn-gradient-error {
+                    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+                    color: white;
+                    border: none;
+                    border-radius: 10px;
+                    padding: 12px 30px;
+                    font-weight: 600;
+                    transition: all 0.3s ease;
+                    text-decoration: none;
+                    display: inline-block;
+                }
+                .btn-gradient-error:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+                    color: white;
+                    text-decoration: none;
+                }
+            </style>
+
+            <div class="slack-oauth-container">
+                <div class="oauth-card">
+                    <div class="error-icon">
+                        <i class="fa fa-times text-white" style="font-size: 48px;"/>
+                    </div>
+
+                    <h2 class="text-center mb-3" style="color: #f5576c;">
+                        Connection Failed
+                    </h2>
+
+                    <div class="alert alert-danger" style="border-radius: 10px; border: none;">
+                        <strong><t t-esc="error"/></strong>
+                    </div>
+
+                    <p class="text-center text-muted mb-4">
+                        <t t-esc="message"/>
+                    </p>
+
+                    <div class="alert alert-warning" style="border-radius: 10px; border: none; background: #fff3cd; color: #856404;">
+                        <i class="fa fa-exclamation-triangle mr-2"/>
+                        <strong>What to do:</strong><br/>
+                        Go back to Slack and use the <code>connect</code> command to generate a new authorization link.
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <a href="/web" class="btn-gradient-error">
+                            <i class="fa fa-home mr-2"/> Go to Odoo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

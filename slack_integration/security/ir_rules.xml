@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Record Rule: Users can only see their own Slack mappings -->
+        <record id="slack_user_mapping_user_rule" model="ir.rule">
+            <field name="name">Slack User Mapping: User can only see own mappings</field>
+            <field name="model_id" ref="model_slack_user_mapping"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- Record Rule: System administrators can see all mappings -->
+        <record id="slack_user_mapping_admin_rule" model="ir.rule">
+            <field name="name">Slack User Mapping: Administrators see all</field>
+            <field name="model_id" ref="model_slack_user_mapping"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- Record Rule: Users can only see conversations linked to their mapping -->
+        <record id="slack_conversation_user_rule" model="ir.rule">
+            <field name="name">Slack Conversation: User can only see own conversations</field>
+            <field name="model_id" ref="model_slack_conversation"/>
+            <field name="domain_force">[('mapping_id.user_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- Record Rule: System administrators can see all conversations -->
+        <record id="slack_conversation_admin_rule" model="ir.rule">
+            <field name="name">Slack Conversation: Administrators see all</field>
+            <field name="model_id" ref="model_slack_conversation"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- Note: slack.security.log is already restricted to system administrators
+             via ir.model.access.csv, so no additional record rules needed -->
+
+    </data>
+</odoo>

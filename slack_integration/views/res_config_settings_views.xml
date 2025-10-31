@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Slack Integration Settings -->
+    <record id="res_config_settings_view_form_slack" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.slack</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority">90</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app string="Slack Integration" name="slack_integration" groups="base.group_system">
+                <block title="Slack Bot Configuration" help="Configure Slack Direct Message bot and slash commands">
+                    <div class="alert alert-info" role="status" invisible="not slack_enabled">
+                        <h4 class="alert-heading o_slack_guide_toggle" style="cursor: pointer; user-select: none;" onclick="this.parentElement.querySelector('.o_slack_setup_instructions').classList.toggle('d-none'); this.querySelector('.o_slack_toggle_icon').classList.toggle('fa-chevron-down'); this.querySelector('.o_slack_toggle_icon').classList.toggle('fa-chevron-right');">
+                            <i class="fa fa-chevron-right o_slack_toggle_icon" style="margin-right: 8px;"></i>📋 Step-by-Step Setup Guide <span style="font-size: 0.85rem; font-weight: normal; opacity: 0.8;">(click to expand)</span>
+                        </h4>
+
+                        <div class="o_slack_setup_instructions d-none" style="margin-top: 15px;">
+                            <p><strong>STEP 1: Create Slack App</strong></p>
+                            <ol style="margin-bottom: 15px;">
+                                <li>Go to <a href="https://api.slack.com/apps" target="_blank">api.slack.com/apps</a></li>
+                                <li>Click "Create New App" → "From scratch"</li>
+                                <li>Give it a name (e.g., "Odoo CRM Bot") and select your workspace</li>
+                            </ol>
+
+                            <p><strong>STEP 2: Get Basic Credentials</strong></p>
+                            <ol style="margin-bottom: 15px;">
+                                <li>Go to <strong>Basic Information</strong> → <strong>App Credentials</strong></li>
+                                <li>Copy the <strong>Verification Token</strong> → Paste it in the field below</li>
+                                <li>Copy the <strong>Signing Secret</strong> → Paste it in the field below</li>
+                            </ol>
+
+                            <p><strong>STEP 3: Add Scopes, Install App and get Bot Token</strong></p>
+                            <ol style="margin-bottom: 15px;">
+                                <li>Go to <strong>OAuth &amp; Permissions</strong></li>
+                                <li>Scroll to <strong>Bot Token Scopes</strong> and add these 6 scopes:
+                                    <ul style="margin-top: 5px;">
+                                        <li><code>chat:write</code>, <code>users:read</code>, <code>channels:read</code></li>
+                                        <li><code>im:write</code>, <code>im:history</code>, <code>im:read</code></li>
+                                    </ul>
+                                </li>
+                                <li>Go to <strong>App Home</strong> → <strong>Show Tabs</strong> → Enable <strong>Messages Tab</strong></li>
+                                <li>Enable <strong>"Allow users to send Slash commands and messages from the messages tab"</strong></li>
+                                <li>Go to <strong>Install App</strong> menu → Click <strong>"Install to Workspace"</strong> → Authorize</li>
+                                <li>Copy the <strong>Bot User OAuth Token</strong> (starts with xoxb-) → Paste it in the field below</li>
+                                <li><strong>Save</strong> this configuration (now all 3 tokens are filled)</li>
+                            </ol>
+
+                            <p><strong>STEP 4: Configure URLs and Events in Slack App</strong></p>
+                            <p style="margin-bottom: 10px;"><em>Copy the 3 URLs from the table below before starting this step.</em></p>
+
+                            <p style="margin-top: 15px;"><strong>A) Event Subscriptions:</strong></p>
+                            <ol style="margin-bottom: 15px;">
+                                <li>In your Slack App, go to <strong>Event Subscriptions</strong></li>
+                                <li>Turn <strong>Enable Events</strong> to <strong>ON</strong></li>
+                                <li>In <strong>Request URL</strong>, paste the <strong>Events URL</strong> from below ↓</li>
+                                <li>Wait for the green ✓ "Verified" message to appear</li>
+                                <li>Scroll to <strong>Subscribe to bot events</strong></li>
+                                <li>Click <strong>Add Bot User Event</strong> and add: <code>message.im</code></li>
+                                <li>Click <strong>Save Changes</strong> at the bottom</li>
+                                <li>If prompted, click <strong>reinstall your app</strong></li>
+                            </ol>
+
+                            <p><strong>B) Interactivity &amp; Shortcuts:</strong></p>
+                            <ol style="margin-bottom: 15px;">
+                                <li>Go to <strong>Interactivity &amp; Shortcuts</strong></li>
+                                <li>Turn <strong>Interactivity</strong> to <strong>ON</strong></li>
+                                <li>In <strong>Request URL</strong>, paste the <strong>Interactivity URL</strong> from below ↓</li>
+                                <li>Click <strong>Save Changes</strong></li>
+                            </ol>
+
+                            <p><strong>C) OAuth Redirect:</strong></p>
+                            <ol style="margin-bottom: 10px;">
+                                <li>Go to <strong>OAuth &amp; Permissions</strong></li>
+                                <li>Scroll to <strong>Redirect URLs</strong></li>
+                                <li>Click <strong>Add New Redirect URL</strong></li>
+                                <li>Paste the <strong>OAuth URL</strong> from below ↓</li>
+                                <li>Click <strong>Add</strong>, then <strong>Save URLs</strong></li>
+                            </ol>
+
+                            <p><strong>STEP 5: Enable the bot in Slack</strong></p>
+                            <ol style="margin-bottom: 15px;">
+                                <li>In Slack, go to the <strong>Apps</strong> section (left sidebar)</li>
+                                <li>Search for your bot by the name you gave it</li>
+                                <li>Click the bot to enable it and open a direct message (DM)</li>
+                                <li>Type <strong>"help"</strong> to get started</li>
+                            </ol>
+
+                            <p style="margin-bottom: 5px;"><strong>✅ Done!</strong> The bot will send you a link to connect your Odoo account.</p>
+                            <p style="margin-bottom: 0; font-size: 0.875rem;" class="text-muted"><strong>Note:</strong> If you cannot send messages to the bot, try signing out and signing back in to Slack to refresh your session.</p>
+                        </div>
+                    </div>
+
+                    <setting string="Enable Slack Integration" help="Enable Slack slash command integration">
+                        <field name="slack_enabled"/>
+                    </setting>
+
+                    <setting string="Verification Token" help="Slack app verification token for validating slash commands (REQUIRED)" invisible="not slack_enabled">
+                        <field name="slack_verification_token" password="True" placeholder="Slack verification token" style="width: 100%;"/>
+                    </setting>
+
+                    <setting string="Signing Secret" help="Slack signing secret for cryptographic request verification (REQUIRED)" invisible="not slack_enabled">
+                        <field name="slack_signing_secret" password="True" placeholder="Slack signing secret" style="width: 100%;"/>
+                    </setting>
+
+                    <setting string="Bot Token (Commands)" help="Slack bot token for opening modals and Web API calls (REQUIRED)" invisible="not slack_enabled">
+                        <field name="slack_bot_token" password="True" placeholder="Bot User OAuth Token (xoxb-...)" style="width: 100%;"/>
+                    </setting>
+
+                    <!-- Bot Token for DMs - Temporarily commented due to transient model issue
+                    <setting string="Bot Token (DMs)" help="Bot User OAuth Token for Direct Messages and Event Subscriptions (REQUIRED for bot functionality)" invisible="not slack_enabled">
+                        <field name="slack_bot_dm_token" password="reveal" placeholder="Bot User OAuth Token (xoxb-...)" style="width: 100%;"/>
+                        <div class="text-muted mt-2">
+                            <small>This token needs the following scopes: chat:write, im:history, im:read, im:write, users:read</small>
+                        </div>
+                    </setting>
+                    -->
+
+                    <setting string="Rate Limiting" help="Configure rate limits for Slack requests to prevent abuse" invisible="not slack_enabled">
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="slack_command_rate_limit" string="Commands/minute"/>
+                                <field name="slack_command_rate_limit" class="o_input"/>
+                            </div>
+                            <div class="col-6">
+                                <label for="slack_interactive_rate_limit" string="Interactions/minute"/>
+                                <field name="slack_interactive_rate_limit" class="o_input"/>
+                            </div>
+                        </div>
+                        <div class="text-muted mt-2">
+                            <small>Higher values allow more concurrent usage but may impact server performance. Default: 300 commands/min, 600 interactions/min.</small>
+                        </div>
+                    </setting>
+
+                    <setting string="Slack Integration Endpoints" help="Copy these URLs to configure your Slack App" invisible="not slack_enabled">
+                        <div class="alert alert-warning" role="alert">
+                            <h5><i class="fa fa-link"></i> URLs to configure in your Slack App</h5>
+                            <p><strong>Replace "your-odoo-domain.com" with your actual domain.</strong></p>
+
+                            <table class="table table-sm table-borderless">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 30%;"><strong>1. Event Subscriptions:</strong></td>
+                                        <td><code>https://your-odoo-domain.com/slack/events</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><small class="text-muted">→ Configure in: Slack App → Event Subscriptions → Request URL</small></td>
+                                    </tr>
+                                    <tr><td colspan="2"><hr/></td></tr>
+                                    <tr>
+                                        <td style="width: 30%;"><strong>2. Interactive Components:</strong></td>
+                                        <td><code>https://your-odoo-domain.com/slack/interactive</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><small class="text-muted">→ Configure in: Slack App → Interactivity &amp; Shortcuts → Request URL</small></td>
+                                    </tr>
+                                    <tr><td colspan="2"><hr/></td></tr>
+                                    <tr>
+                                        <td style="width: 30%;"><strong>3. OAuth Redirect:</strong></td>
+                                        <td><code>https://your-odoo-domain.com/slack/oauth/authorize</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><small class="text-muted">→ Configure in: Slack App → OAuth &amp; Permissions → Redirect URLs</small></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </setting>
+
+                </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Action for Slack Integration Settings -->
+    <record id="action_slack_integration_config" model="ir.actions.act_window">
+        <field name="name">Slack Integration Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module': 'slack_integration'}</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Impersonation for Odoo 18</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background: #fff;
+            font-size: 16px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #714B67 0%, #875A7B 100%);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #714B67;
+            margin: 40px 0 20px 0;
+            font-weight: 700;
+            border-bottom: 2px solid #714B67;
+            padding-bottom: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        ul {
+            margin: 20px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        strong {
+            color: #714B67;
+        }
+
+        .info-box {
+            background: #f0f7ff;
+            border-left: 4px solid #714B67;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .info-box strong {
+            color: #714B67;
+        }
+
+        .steps {
+            list-style: none;
+            counter-reset: step-counter;
+            padding-left: 0;
+        }
+
+        .steps li {
+            counter-increment: step-counter;
+            padding: 10px 0 10px 45px;
+            position: relative;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .steps li:before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 8px;
+            background: #875A7B;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9em;
+        }
+
+        .security-box {
+            background: #f9f9f9;
+            border: 2px solid #875A7B;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #999;
+            border-top: 1px solid #ddd;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #714B67;
+            text-decoration: none;
+        }
+
+        .support-box {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>User Impersonation</h1>
+        <p>Secure user impersonation for support and debugging</p>
+    </div>
+
+    <div style="text-align: center; margin: 20px auto; padding: 0; max-width: 600px;">
+        <img src="header.png" alt="User Impersonation Module" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.1);" onerror="this.style.display='none'">
+    </div>
+
+    <div class="container" style="padding-top: 20px;">
+        <h2 style="margin-top: 20px;">Overview</h2>
+        <p style="font-size: 1.05em; line-height: 1.7;">
+            User Impersonation enables system administrators to temporarily log in as other users for
+            customer support, debugging, and testing purposes. Every impersonation session requires a
+            <strong>mandatory audit reason</strong> and is fully logged with IP address tracking.
+        </p>
+
+        <h2>Key Features</h2>
+        <ul style="list-style: none; padding-left: 0;">
+            <li style="padding: 8px 0; border-bottom: 1px solid #f0f0f0;">
+                <span style="color: #875A7B; font-size: 1.2em; margin-right: 8px;">🔐</span>
+                <strong>Secure Access Control</strong> — Only system administrators can impersonate users
+            </li>
+            <li style="padding: 8px 0; border-bottom: 1px solid #f0f0f0;">
+                <span style="color: #875A7B; font-size: 1.2em; margin-right: 8px;">📝</span>
+                <strong>Mandatory Audit Reasons</strong> — Every session requires a documented reason
+            </li>
+            <li style="padding: 8px 0; border-bottom: 1px solid #f0f0f0;">
+                <span style="color: #875A7B; font-size: 1.2em; margin-right: 8px;">🛡️</span>
+                <strong>Rate Limiting</strong> — Maximum 5 attempts per minute to prevent abuse
+            </li>
+            <li style="padding: 8px 0; border-bottom: 1px solid #f0f0f0;">
+                <span style="color: #875A7B; font-size: 1.2em; margin-right: 8px;">⏱️</span>
+                <strong>Session Timeout</strong> — Automatic logout after 1 hour
+            </li>
+            <li style="padding: 8px 0; border-bottom: 1px solid #f0f0f0;">
+                <span style="color: #875A7B; font-size: 1.2em; margin-right: 8px;">📊</span>
+                <strong>Complete Audit Trail</strong> — All sessions logged with timestamps, IP address, and reason
+            </li>
+            <li style="padding: 8px 0; border-bottom: 1px solid #f0f0f0;">
+                <span style="color: #875A7B; font-size: 1.2em; margin-right: 8px;">🎯</span>
+                <strong>Visual Indicators</strong> — Orange banner and systray icon during impersonation
+            </li>
+            <li style="padding: 8px 0;">
+                <span style="color: #875A7B; font-size: 1.2em; margin-right: 8px;">🌍</span>
+                <strong>Multilingual</strong> — Available in English and Spanish
+            </li>
+        </ul>
+
+        <h2>How to Use</h2>
+
+        <h3 style="color: #875A7B; margin-top: 35px; margin-bottom: 15px;">Starting Impersonation</h3>
+        <ol class="steps">
+            <li>Navigate to <strong>Settings → Users & Companies → Users</strong></li>
+            <li>Select any user (except administrators or yourself)</li>
+            <li>Click the <strong>"Impersonate User"</strong> button</li>
+            <li>Enter a <strong>mandatory reason</strong> for the audit trail</li>
+            <li>Click <strong>Confirm</strong></li>
+        </ol>
+
+        <div class="info-box">
+            <strong>💡 Tip:</strong> You can also start impersonation from the user list view for quick access.
+        </div>
+
+        <h3 style="color: #875A7B; margin-top: 35px; margin-bottom: 15px;">During Impersonation</h3>
+        <ul>
+            <li>An <strong>orange banner</strong> appears at the top showing current impersonation status</li>
+            <li>A <strong>systray indicator</strong> displays in the top-right corner</li>
+            <li>All actions are performed as the impersonated user</li>
+            <li>Session automatically expires after <strong>1 hour</strong></li>
+        </ul>
+
+        <h3 style="color: #875A7B; margin-top: 35px; margin-bottom: 15px;">Stopping Impersonation</h3>
+        <p>Click the <strong>"Stop Impersonation"</strong> button in either:</p>
+        <ul>
+            <li>The orange banner at the top of the screen, or</li>
+            <li>The systray indicator dropdown in the top-right corner</li>
+        </ul>
+
+        <h3 style="color: #875A7B; margin-top: 35px; margin-bottom: 15px;">Viewing Audit Logs</h3>
+        <p>Access complete impersonation history at:</p>
+        <p style="background: #f5f5f5; padding: 10px 15px; border-left: 3px solid #875A7B; font-family: monospace;">
+            <strong>Settings → Technical → User Impersonation → Logs</strong>
+        </p>
+
+        <p>Each log entry includes:</p>
+        <ul>
+            <li>Administrator who performed the impersonation</li>
+            <li>Target user who was impersonated</li>
+            <li>Start and stop timestamps</li>
+            <li>Session duration</li>
+            <li><strong>Reason for impersonation</strong></li>
+            <li>IP address for forensic analysis</li>
+        </ul>
+
+        <h2>Security & Permissions</h2>
+        <div class="security-box">
+            <h3 style="color: #714B67; margin-top: 0;">Security Features</h3>
+            <ul style="list-style: none; padding-left: 0;">
+                <li style="padding: 6px 0 6px 25px; position: relative;">
+                    <span style="position: absolute; left: 0; color: #875A7B;">✓</span>
+                    Only users with <strong>Administration / Settings</strong> permissions can impersonate
+                </li>
+                <li style="padding: 6px 0 6px 25px; position: relative;">
+                    <span style="position: absolute; left: 0; color: #875A7B;">✓</span>
+                    Cannot impersonate other administrators (system protection)
+                </li>
+                <li style="padding: 6px 0 6px 25px; position: relative;">
+                    <span style="position: absolute; left: 0; color: #875A7B;">✓</span>
+                    Cannot impersonate yourself
+                </li>
+                <li style="padding: 6px 0 6px 25px; position: relative;">
+                    <span style="position: absolute; left: 0; color: #875A7B;">✓</span>
+                    Rate limiting: Maximum 5 attempts per minute
+                </li>
+                <li style="padding: 6px 0 6px 25px; position: relative;">
+                    <span style="position: absolute; left: 0; color: #875A7B;">✓</span>
+                    Session timeout: Automatic logout after 1 hour
+                </li>
+                <li style="padding: 6px 0 6px 25px; position: relative;">
+                    <span style="position: absolute; left: 0; color: #875A7B;">✓</span>
+                    IP address logging for forensic analysis
+                </li>
+                <li style="padding: 6px 0 6px 25px; position: relative;">
+                    <span style="position: absolute; left: 0; color: #875A7B;">✓</span>
+                    Mandatory audit reasons for compliance
+                </li>
+            </ul>
+        </div>
+
+        <div class="info-box" style="background: #fff3cd; border-left-color: #ffc107;">
+            <strong style="color: #856404;">⚠️ Best Practices</strong>
+            <ul style="margin: 10px 0 0 0;">
+                <li>Always document the reason for impersonation</li>
+                <li>Inform users when accessing their account for support</li>
+                <li>Minimize impersonation time — only stay as long as necessary</li>
+                <li>Review audit logs regularly to ensure proper usage</li>
+            </ul>
+        </div>
+
+        <h2 style="margin-top: 60px;">Support</h2>
+        <div class="support-box">
+            <p style="margin: 0 0 10px 0; font-size: 1.05em;">
+                This module is developed and maintained by <strong style="color: #714B67;">Stoner Studios</strong>.
+            </p>
+            <p style="margin: 0;">
+                📧 For support, contact us at
+                <a href="mailto:support@stonerstudios.com" style="color: #714B67; font-weight: 600; text-decoration: none;">support@stonerstudios.com</a>
+            </p>
+        </div>
+
+        <div class="footer">
+            <p style="margin: 0 0 5px 0;"><strong style="color: #714B67;">Stoner Studios</strong> — Premium Odoo Solutions</p>
+            <p style="margin: 0; font-size: 0.85em;">Licensed under LGPL-3 | Compatible with Odoo 18.0</p>
+            <p style="margin: 10px 0 0 0; font-size: 0.85em; color: #777;">
+                Use responsibly and in compliance with privacy laws and company policies.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

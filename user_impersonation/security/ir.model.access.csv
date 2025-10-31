@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_user_impersonate_log_admin,user.impersonate.log.admin,model_user_impersonate_log,base.group_system,1,0,1,0
+access_user_impersonate_log_user,user.impersonate.log.user,model_user_impersonate_log,base.group_user,0,0,0,0
+access_impersonate_wizard_admin,impersonate.wizard.admin,model_impersonate_wizard,base.group_system,1,1,1,1

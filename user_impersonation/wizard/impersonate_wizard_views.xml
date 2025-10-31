@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Impersonate Wizard Form View -->
+    <record id="view_impersonate_wizard_form" model="ir.ui.view">
+        <field name="name">impersonate.wizard.form</field>
+        <field name="model">impersonate.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Impersonate User">
+                <group>
+                    <field name="user_id"/>
+                    <field name="reason" placeholder="e.g., User reported an issue with X feature, troubleshooting required..."/>
+                </group>
+                <footer>
+                    <button name="action_confirm" string="Impersonate" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to open the wizard -->
+    <record id="action_open_impersonate_wizard" model="ir.actions.act_window">
+        <field name="name">Impersonate User</field>
+        <field name="res_model">impersonate.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="base.model_res_users"/>
+        <field name="binding_view_types">form</field>
+    </record>
+</odoo>

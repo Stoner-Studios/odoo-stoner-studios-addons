@@ -1,0 +1,159 @@
+/* Main notification banner */
+.o_impersonate_notification {
+    position: relative;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+    color: white;
+    padding: 10px 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    animation: pulse 2s infinite;
+    z-index: 1050; /* Below Odoo's test banner but above content */
+}
+
+.o_impersonate_notification_content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.o_impersonate_notification_info {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.o_impersonate_notification_actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Mini version when minimized */
+.o_impersonate_notification_mini {
+    position: fixed;
+    top: var(--impersonate-top-offset, 0);
+    right: 20px;
+    background: #ff6b6b;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 0 0 5px 5px;
+    cursor: pointer;
+    z-index: 1050;
+    font-size: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.o_impersonate_notification_mini:hover {
+    background: #ff5252;
+}
+
+/* Adjust when Odoo's test warning is present */
+body.o_impersonating .o_action_manager {
+    padding-top: 50px;
+}
+
+/* Stack banners properly when multiple are present */
+.test_mode_warning ~ .o_impersonate_notification {
+    margin-top: 0; /* Let them stack naturally */
+}
+
+/* If there's a test mode banner, adjust the mini banner position */
+.test_mode_warning ~ * .o_impersonate_notification_mini,
+body:has(.test_mode_warning) .o_impersonate_notification_mini {
+    --impersonate-top-offset: 40px;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    50% {
+        box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+    }
+    100% {
+        box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+}
+
+@keyframes pulse-subtle {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Systray item styling */
+.o_impersonate_systray_item .dropdown-toggle {
+    animation: pulse-subtle 3s infinite;
+}
+
+.o_impersonate_systray_item .dropdown-menu {
+    min-width: 280px;
+}
+
+/* Make the banner more prominent in mobile */
+@media (max-width: 768px) {
+    .o_impersonate_banner {
+        padding: 15px 10px;
+    }
+    
+    .o_impersonate_banner_content {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+/* Warning bar that stacks with other Odoo warnings */
+.o_impersonate_warning_bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1040; /* Below modals but above content */
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff8c42 100%);
+    color: white;
+    padding: 8px 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    transition: top 0.3s ease;
+}
+
+.o_impersonate_warning_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Stack properly with other warnings */
+.o_database_warning ~ .o_impersonate_warning_bar,
+.test_mode_warning ~ .o_impersonate_warning_bar {
+    top: 40px !important;
+}
+
+/* If multiple warnings exist */
+body.o_user_impersonating {
+    padding-top: var(--impersonate-offset, 40px);
+}
+
+/* Systray styling */
+.o_impersonate_warning_systray .dropdown-toggle {
+    animation: pulse-warn 3s infinite;
+}
+
+@keyframes pulse-warn {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+/* Notification toast */
+.o_impersonate_notification_toast {
+    background-color: #ff6b6b !important;
+}
