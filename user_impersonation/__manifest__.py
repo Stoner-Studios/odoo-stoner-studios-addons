@@ -2,7 +2,7 @@
 {
     'name': 'User Impersonation',
     'version': '18.0.1.0.0',
-    'category': 'Administration',
+    'category': 'Tools',
     'summary': 'Secure user impersonation with mandatory audit reasons',
     'description': """
         User Impersonation for Odoo 18
