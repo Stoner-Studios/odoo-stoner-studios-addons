@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'User Impersonation',
+    'name': 'Login As User (Secure Impersonation)',
     'version': '18.0.1.0.0',
     'category': 'Tools',
-    'summary': 'Secure user impersonation with mandatory audit reasons',
+    'summary': 'Admin can login as any user with mandatory audit reasons and complete security trail',
     'description': """
-        User Impersonation for Odoo 18
-        ===============================
+        Login As User - Secure Impersonation for Odoo 18
+        =================================================
 
-        Allows system administrators to temporarily log in as other users for support
+        Allows system administrators to login as other users temporarily for support
         and debugging purposes, with complete audit trail and mandatory reasons.
 
         Features:
