@@ -21,7 +21,7 @@
         * Spanish translations included
     """,
     'author': 'Stoner Studios',
-    'website': 'https://stonerstudios.com',
+    'website': 'https://stonerstudios.com/en/',
     'maintainer': 'Stoner Studios',
     'support': 'support@stonerstudios.com',
     'license': 'LGPL-3',
