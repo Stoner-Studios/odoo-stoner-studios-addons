@@ -52,7 +52,7 @@ Security:
 Perfect for teams that want to manage their CRM pipeline directly from Slack.
     """,
     'author': 'Stoner Studios',
-    'website': 'https://stonerstudios.com',
+    'website': 'https://stonerstudios.com/en/',
     'maintainer': 'Stoner Studios',
     'support': 'support@stonerstudios.com',
     'depends': [
